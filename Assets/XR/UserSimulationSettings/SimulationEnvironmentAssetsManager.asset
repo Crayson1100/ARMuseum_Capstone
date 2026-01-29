@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Unity.XR.Simulation.Editor::UnityEditor.XR.Simulation.SimulationEnvironmentAssetsManager
   m_EnvironmentPrefabPaths:
   - Assets/Prefabs/Simulation Environment.prefab
+  - Assets/Prefabs/Stephen Environment Variant.prefab
   - Packages/com.unity.xr.arfoundation/Assets/Prefabs/DefaultSimulationEnvironment.prefab
   m_FallbackAtEndOfList: 1
