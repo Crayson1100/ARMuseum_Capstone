@@ -27,3 +27,13 @@ MonoBehaviour:
     m_SpecifySize: 0
     m_Name: Blocs Logo
     m_Texture: {fileID: 2800000, guid: 22312957cbe968c4e9c6489164a505b3, type: 3}
+  - m_SerializedGuid:
+      m_GuidLow: 5391803663361353632
+      m_GuidHigh: 11956224737740609713
+    m_SerializedTextureGuid:
+      m_GuidLow: 2807118714600821215
+      m_GuidHigh: 16450744881174191019
+    m_Size: {x: 0, y: 0}
+    m_SpecifySize: 0
+    m_Name: sad ethan
+    m_Texture: {fileID: 2800000, guid: 222211dfe39926f4ab9bf6444fc94ce4, type: 3}
