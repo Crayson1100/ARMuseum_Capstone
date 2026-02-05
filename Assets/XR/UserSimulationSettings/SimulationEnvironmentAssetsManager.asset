@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: SimulationEnvironmentAssetsManager
   m_EditorClassIdentifier: Unity.XR.Simulation.Editor::UnityEditor.XR.Simulation.SimulationEnvironmentAssetsManager
   m_EnvironmentPrefabPaths:
+  - Assets/Prefabs/3rdFloorPrefab.prefab
   - Assets/Prefabs/exhibit_001.prefab
   - Assets/Prefabs/Simulation Environment.prefab
   - Assets/Prefabs/Stephen Environment Variant.prefab
