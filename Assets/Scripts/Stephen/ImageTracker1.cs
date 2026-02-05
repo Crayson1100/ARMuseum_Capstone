@@ -43,7 +43,7 @@ public class ImageTracker1 : MonoBehaviour
         foreach (var entry in args.removed)
         {
             // Image removed from tracking
-            RemovePrefab(entry);
+            RemovePrefab(entry.Value);
         }
     }
 
