@@ -37,7 +37,6 @@ public class ImageTracker : MonoBehaviour
         {
             //Updating / Image on Screen
 
-            UpdatePrefab(entry);
         }
 
         foreach (var entry in args.removed)
@@ -62,6 +61,8 @@ public class ImageTracker : MonoBehaviour
 
         if (spawnedPrefabs.ContainsKey(trackedImage.referenceImage.name)) return;
 
+        ARAnchor anchor = trackedImage.gameObject.AddComponent<ARAnchor>();
+
         GameObject obj = Instantiate(prefab, trackedImage.transform);
         obj.transform.localPosition = Vector3.zero;
         obj.transform.localRotation = Quaternion.identity;
@@ -69,13 +70,6 @@ public class ImageTracker : MonoBehaviour
         spawnedPrefabs.Add(trackedImage.referenceImage.name, obj);
     }
 
-    private void UpdatePrefab(ARTrackedImage trackedImage)
-    {
-        if (spawnedPrefabs.TryGetValue(trackedImage.referenceImage.name, out GameObject obj))
-        {
-            obj.transform.position = trackedImage.transform.position;
-            obj.transform.rotation = trackedImage.transform.rotation;
-        }
-    }
+
     
 }
