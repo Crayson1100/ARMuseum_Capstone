@@ -101,18 +101,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_CameraStartingPose:
-    position: {x: 0.22, y: 0.9345944, z: -0.21}
-    rotation: {x: -0.16794881, y: 0.414527, z: -0.078137435, w: -0.8909855}
+    position: {x: -0.11, y: 0.9345944, z: 47.93}
+    rotation: {x: 0, y: 0, z: 0, w: 1}
   m_CameraMovementBounds:
-    m_Center: {x: 0.044999838, y: 0.545, z: 0.00000011920929}
-    m_Extent: {x: 1.3000004, y: 0.5500002, z: 1.2500005}
+    m_Center: {x: 1.5, y: 1.497503, z: -9.29789}
+    m_Extent: {x: 134.32695, y: 1.5025033, z: 62.428665}
   m_DefaultViewPose:
     position: {x: 0, y: 1.0609863, z: -1.5}
     rotation: {x: -0.16100603, y: 0.1567927, z: -0.025916385, w: -0.97407466}
   m_DefaultViewPivot: {x: 0, y: 0, z: 0}
   m_DefaultViewSize: 2
   m_RenderSettings:
-    m_AmbientMode: 1
+    m_AmbientMode: 0
     m_AmbientSkyColor: {r: 0.77254903, g: 0.73333335, b: 0.7372549, a: 1}
     m_AmbientEquatorColor: {r: 0.5372549, g: 0.53333336, b: 0.5254902, a: 1}
     m_AmbientGroundColor: {r: 0.42352942, g: 0.42352942, b: 0.42352942, a: 1}
