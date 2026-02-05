@@ -1,5 +1,3 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -60,8 +58,7 @@ public class ImageTracker : MonoBehaviour
         if (spawnedPrefabs.ContainsKey(trackedImage.referenceImage.name)) return;
 
         ARAnchor anchor = trackedImage.gameObject.AddComponent<ARAnchor>();
-
-        GameObject obj = Instantiate(prefab, trackedImage.transform);
+        GameObject obj = Instantiate(prefab, anchor.transform.position, prefab.transform.rotation);
         obj.transform.rotation = Quaternion.FromToRotation(-obj.transform.up, Vector3.down) * obj.transform.rotation;
 
 
