@@ -29,7 +29,6 @@ public class ImageTracker : MonoBehaviour
         foreach (var entry in args.added)
         {
             //Trackable Image loaded into image tracker
-            //Debug.Log(FindPrefab(entry.referenceImage.name).name);
 
             SpawnPrefab(entry);
         }
@@ -37,7 +36,8 @@ public class ImageTracker : MonoBehaviour
         foreach (var entry in args.updated)
         {
             //Updating / Image on Screen
-            //Debug.Log($"{entry.referenceImage.name} is within sight");
+
+            UpdatePrefab(entry);
         }
 
         foreach (var entry in args.removed)
@@ -68,4 +68,14 @@ public class ImageTracker : MonoBehaviour
 
         spawnedPrefabs.Add(trackedImage.referenceImage.name, obj);
     }
+
+    private void UpdatePrefab(ARTrackedImage trackedImage)
+    {
+        if (spawnedPrefabs.TryGetValue(trackedImage.referenceImage.name, out GameObject obj))
+        {
+            obj.transform.position = trackedImage.transform.position;
+            obj.transform.rotation = trackedImage.transform.rotation;
+        }
+    }
+    
 }
