@@ -59,7 +59,7 @@ public class ImageTracker : MonoBehaviour
 
         ARAnchor anchor = trackedImage.gameObject.AddComponent<ARAnchor>();
         GameObject obj = Instantiate(prefab, anchor.transform.position, prefab.transform.rotation);
-        obj.transform.rotation = Quaternion.FromToRotation(-obj.transform.up, Vector3.down) * obj.transform.rotation;
+        //obj.transform.rotation = Quaternion.FromToRotation(-obj.transform.up, Vector3.down) * obj.transform.rotation;
 
 
         spawnedPrefabs.Add(trackedImage.referenceImage.name, obj);
