@@ -2,9 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
 
@@ -64,8 +62,8 @@ public class ImageTracker : MonoBehaviour
         ARAnchor anchor = trackedImage.gameObject.AddComponent<ARAnchor>();
 
         GameObject obj = Instantiate(prefab, trackedImage.transform);
-        obj.transform.localPosition = Vector3.zero;
-        obj.transform.localRotation = Quaternion.identity;
+        obj.transform.rotation = Quaternion.FromToRotation(-obj.transform.up, Vector3.down) * obj.transform.rotation;
+
 
         spawnedPrefabs.Add(trackedImage.referenceImage.name, obj);
     }
