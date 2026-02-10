@@ -1,49 +1,66 @@
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.Audio;
 using TMPro;
+using UnityEngine.Audio;
 
 public class SettingsMenu : MonoBehaviour
 {
-    [SerializeField] GameObject masterSlider, masterButton, musicSlider, musicButton, soundSlider, soundButton;//sound panel
+    [Header("Main UI")]
+    [SerializeField] GameObject settingsMenu;
+    [SerializeField] Camera mainCamera;
+
+    [Header("Audio")]
+    [SerializeField] AudioMixer mixer;
+    [SerializeField] Slider masterSlider;
+    [SerializeField] Slider musicSlider;
+    [SerializeField] Slider soundSlider;
+
+    [Header("Font")]
+    [SerializeField] Slider fontSlider;
     [SerializeField] TMP_Text fontText;
     [SerializeField] TMP_Text[] allUIText;
-    [SerializeField] Slider fontSlider;
-    [SerializeField] Camera mainCamera;
-    //[SerializeField] AudioMixer mixer;
-    [SerializeField] GameObject settingsMenu, exitButton;
 
-    private void Awake()
+    float defaultOrthoSize = 5f;
+
+    public void ToggleSettings()
     {
-        settingsMenu.SetActive(false);
-    }
-    public void SettingsButton()
-    {
-        settingsMenu.SetActive(true);
+        settingsMenu.SetActive(!settingsMenu.activeSelf);
     }
     public void ZoomIn()
     {
         mainCamera.orthographicSize -= 1f;
     }
-
     public void ZoomOut()
     {
         mainCamera.orthographicSize += 1f;
     }
-    public void MasterVolume()
+    public void SetMasterVolume()
     {
-        //slider function controls level
-        //button function will mute ALL audio
+        float value = masterSlider.value;
+        mixer.SetFloat("MasterVolume", Mathf.Log10(value) * 20);
     }
-    public void Music()
+    public void ToggleMuteMaster()
     {
-        //slider function controls level
-        //button function will mute only Music audio
+        mixer.SetFloat("MasterVolume", -80f);
     }
-    public void Sound()
+    public void SetMusicVolume()
     {
-        //slider function controls level
-        //button function will mute only Sound audio
+        float value = musicSlider.value;
+        mixer.SetFloat("MusicVolume", Mathf.Log10(value) * 20);
+    }
+    public void ToggleMuteMusic()
+    {
+        mixer.SetFloat("MusicVolume", -80f);
+    }
+    public void SetSoundVolume()
+    {
+        float value = soundSlider.value;
+        mixer.SetFloat("SFXVolume", Mathf.Log10(value) * 20);
+    }
+
+    public void ToggleMuteSound()
+    {
+        mixer.SetFloat("SFXVolume", -80f);
     }
 
     public void SetFontSize()
@@ -62,3 +79,4 @@ public class SettingsMenu : MonoBehaviour
         settingsMenu.SetActive(false);
     }
 }
+
