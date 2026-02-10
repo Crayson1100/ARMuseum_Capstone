@@ -22,6 +22,18 @@ public class SettingsMenu : MonoBehaviour
 
     float defaultOrthoSize = 5f;
 
+    void Awake()
+    {
+        // Set default slider values
+        masterSlider.value = 0.5f;
+        musicSlider.value = 0.5f;
+        soundSlider.value = 0.5f;
+
+        // Apply volumes to mixer
+        SetMasterVolume();
+        SetMusicVolume();
+        SetSoundVolume();
+    }
     public void ToggleSettings()
     {
         settingsMenu.SetActive(!settingsMenu.activeSelf);
@@ -37,30 +49,30 @@ public class SettingsMenu : MonoBehaviour
     public void SetMasterVolume()
     {
         float value = masterSlider.value;
-        mixer.SetFloat("MasterVolume", Mathf.Log10(value) * 20);
+        mixer.SetFloat("Master Volume", Mathf.Log10(value) * 20);
     }
     public void ToggleMuteMaster()
     {
-        mixer.SetFloat("MasterVolume", -80f);
+        mixer.SetFloat("Master Volume", -80f);
     }
     public void SetMusicVolume()
     {
         float value = musicSlider.value;
-        mixer.SetFloat("MusicVolume", Mathf.Log10(value) * 20);
+        mixer.SetFloat("Music Volume", Mathf.Log10(value) * 20);
     }
     public void ToggleMuteMusic()
     {
-        mixer.SetFloat("MusicVolume", -80f);
+        mixer.SetFloat("Music Volume", -80f);
     }
     public void SetSoundVolume()
     {
         float value = soundSlider.value;
-        mixer.SetFloat("SFXVolume", Mathf.Log10(value) * 20);
+        mixer.SetFloat("SFX Volume", Mathf.Log10(value) * 20);
     }
 
     public void ToggleMuteSound()
     {
-        mixer.SetFloat("SFXVolume", -80f);
+        mixer.SetFloat("SFX Volume", -80f);
     }
 
     public void SetFontSize()
