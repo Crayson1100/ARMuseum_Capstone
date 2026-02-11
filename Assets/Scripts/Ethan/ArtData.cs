@@ -2,9 +2,13 @@ using System;
 using UnityEngine;
 
 /*
- * This will hold our exhibit data
+ * This will hold our:
+ * Artist Information
+ * Arist Audio
+ * Model/Art
  * 
  */
+
 [CreateAssetMenu(fileName = "ArtData", menuName = "Scriptable Objects/ArtData")]
 [Serializable]
 public class ArtData : ScriptableObject
@@ -23,7 +27,5 @@ public class ArtData : ScriptableObject
     public string ArtName;
     public string ArtDescription;
     public string ArtistName;
-
-
 
 }

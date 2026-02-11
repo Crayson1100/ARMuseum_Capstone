@@ -14,7 +14,8 @@ using UnityEngine;
 public class Gallery : MonoBehaviour
 {
 
-    public List<Exhibit> Displays;
+    public List<Exhibit> Exhibits;
+
 
 
 }
