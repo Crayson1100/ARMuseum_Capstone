@@ -252,10 +252,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 68793679}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5cdaa5d3cd6094c4783b50165ad5200d, type: 3}
+  m_Script: {fileID: 11500000, guid: 9445e952c01c69940bc7e73ccc31d555, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ARExhibitSpawner
-  environmentPrefab: {fileID: 0}
+  m_EditorClassIdentifier: Assembly-CSharp::GalleryLoader
+  loadedGalleries: []
 --- !u!1 &126705755
 GameObject:
   m_ObjectHideFlags: 0
