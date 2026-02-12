@@ -23,6 +23,8 @@ public class SettingsMenu : MonoBehaviour
     [SerializeField] TMP_Text[] allUIText;
 
     float defaultOrthoSize = 5f;
+    private bool isMuted = false;
+    private float previousVolume = 0f;
 
     //private void Start()
     //{
@@ -68,7 +70,18 @@ public class SettingsMenu : MonoBehaviour
     }
     public void ToggleMuteMaster()
     {
-        mixer.SetFloat("Master", -80f);
+        if (!isMuted)
+        {
+            mixer.GetFloat("Master", out previousVolume);
+
+            mixer.SetFloat("Master", -80f);
+            isMuted = true;
+        }
+        else
+        {
+            mixer.SetFloat("Master", previousVolume);
+            isMuted = false;
+        }
     }
     public void SetMusicVolume()
     {
@@ -101,7 +114,9 @@ public class SettingsMenu : MonoBehaviour
             text.fontSize = size;
         }
 
-        fontText.text = "A" + size.ToString("0");
+        fontText.text = "A";
+        //fontText.text = "A" + size.ToString("0");
+
     }
     public void Exit()
     {
