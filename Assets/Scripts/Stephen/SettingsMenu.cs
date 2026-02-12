@@ -24,17 +24,17 @@ public class SettingsMenu : MonoBehaviour
 
     float defaultOrthoSize = 5f;
 
-    private void Start()
-    {
-        if (PlayerPrefs.HasKey("masterVolume"))
-        {
-            LoadVolume();
-        }
-        else
-        {
-            SetMusicVolume();
-        }
-    }
+    //private void Start()
+    //{
+    //    if (PlayerPrefs.HasKey("masterVolume"))
+    //    {
+    //        LoadVolume();
+    //    }
+    //    else
+    //    {
+    //        SetMusicVolume();
+    //    }
+    //}
     //void Awake()
     //{
     //    masterSlider.value = 50f;
@@ -55,7 +55,7 @@ public class SettingsMenu : MonoBehaviour
     }
     private void LoadVolume()
     {
-        musicSlider.value = PlayerPrefs.GetFloat("musicVolume");
+        //musicSlider.value = PlayerPrefs.GetFloat("musicVolume");
         SetMasterVolume();
         SetMusicVolume();
         SetSoundVolume();
@@ -63,33 +63,33 @@ public class SettingsMenu : MonoBehaviour
     public void SetMasterVolume()
     {
         float volume = masterSlider.value;
-        mixer.SetFloat("MasterVolume", Mathf.Log10(volume) * 20);
-        PlayerPrefs.SetFloat("masterVolume", volume);
+        mixer.SetFloat("Master", Mathf.Log10(volume) * 20);
+        //PlayerPrefs.SetFloat("masterVolume", volume);
     }
     public void ToggleMuteMaster()
     {
-        mixer.SetFloat("MasterVolume", -80f);
+        mixer.SetFloat("Master", -80f);
     }
     public void SetMusicVolume()
     {
         float volume = musicSlider.value;
-        mixer.SetFloat("Music Volume", Mathf.Log10(volume) * 20);
-        PlayerPrefs.SetFloat("musicVolume", volume);
+        mixer.SetFloat("Music", Mathf.Log10(volume) * 20);
+        //PlayerPrefs.SetFloat("musicVolume", volume);
     }
     public void ToggleMuteMusic()
     {
-        mixer.SetFloat("MusicVolume", -80f);
+        mixer.SetFloat("Music", -80f);
     }
     public void SetSoundVolume()
     {
         float volume = soundSlider.value;
-        mixer.SetFloat("SFXVolume", Mathf.Log10(volume) * 20);
-        PlayerPrefs.SetFloat("soundVolume", volume);
+        mixer.SetFloat("SFX", Mathf.Log10(volume) * 20);
+        //PlayerPrefs.SetFloat("soundVolume", volume);
     }
 
     public void ToggleMuteSound()
     {
-        mixer.SetFloat("SFXVolume", -80f);
+        mixer.SetFloat("SFX", -80f);
     }
 
     public void SetFontSize()
