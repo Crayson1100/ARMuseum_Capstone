@@ -4,17 +4,8 @@ using UnityEngine;
 [Serializable]
 public class Exhibit : MonoBehaviour
 {
-    /*
-     * 
-     * This load art/models from the exhibit lists
-     * This will validate art/model scaling
-     * Needs methods to output text/audio for art that have them
-     * 
-     * 
-     */
 
     public ArtData art;
-    public Transform localPosition;
     private GameObject displayObject;
 
     public Transform[] artLocation;
@@ -23,19 +14,21 @@ public class Exhibit : MonoBehaviour
     private void Start()
     {
         displayObject = Instantiate<GameObject>(art.model, artLocation[0].position, Quaternion.identity);
-        ScaleModel(displayObject.transform);
+
+        ScaleModel(displayObject.transform,this.transform);
        
 
     }
 
-    /// <summary>
-    /// Scales a given models renderers to the same size as our exhibit renderers
-    /// </summary>
-    /// <param name="model"> the transform of the model</param>
-    private void ScaleModel(Transform model)
+/// <summary>
+/// Scale a model to an exhibits size
+/// </summary>
+/// <param name="model"></param>
+/// <param name="exhibit"></param>
+    public static void ScaleModel(Transform model, Transform exhibit)
     {
         Renderer[] modelRenderers = model.GetComponentsInChildren<Renderer>();
-        Renderer[] tableRenderers = GetComponentsInChildren<Renderer>();
+        Renderer[] tableRenderers = exhibit.GetComponentsInChildren<Renderer>(); 
 
         if (tableRenderers.Length == 0 || tableRenderers == null) return;
         if (modelRenderers.Length == 0 || modelRenderers == null) return;
