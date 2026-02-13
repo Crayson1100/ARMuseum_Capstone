@@ -19,5 +19,10 @@ public class Exhibit : MonoBehaviour
     public Transform[] artLocation;
 
 
+    private void Start()
+    {
+        var obj = Instantiate<GameObject>(art.model, artLocation[0].position, Quaternion.identity);
 
+
+    }
 }

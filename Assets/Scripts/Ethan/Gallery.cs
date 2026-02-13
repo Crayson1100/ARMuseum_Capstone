@@ -17,5 +17,8 @@ public class Gallery : MonoBehaviour
     public List<Exhibit> Exhibits;
 
 
-
+    private void Start()
+    {
+        
+    }
 }

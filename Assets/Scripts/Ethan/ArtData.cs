@@ -1,6 +1,7 @@
 
 using System;
 using System.Collections.Generic;
+using UnityEngine;
 
 
 /*
@@ -12,17 +13,19 @@ using System.Collections.Generic;
  */
 
 [Serializable]
-public class ArtData 
+[CreateAssetMenu(fileName = "Art Data", menuName = "Art Data")]
+public class ArtData : ScriptableObject
 {
     public enum Type {MODEL, ANIMATION, MOVIE, ART}
     public Type type;
-
+    [Space(10)]
     public string ArtName;
     public string ArtDescription;
+    [Space(2)]
     public string ArtistName;
-    public string RelativePath;
+    [Space(10)]
+    public GameObject model;
 
-    public string FilePath;
 
 }
 public class CollectionData
