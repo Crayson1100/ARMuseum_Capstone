@@ -35,4 +35,13 @@ public class PrefabUI : MonoBehaviour
         for (int i = 0; i < displays.Length; i++)
             displays[i].SetActive(i == currentDisplay);
     }
+    public void ReSpawn()
+    {
+        if (displays.Length == 0) return;
+
+        GameObject obj = displays[currentDisplay];
+        obj.SetActive(false);
+        obj.SetActive(true);
+    }
+
 }
