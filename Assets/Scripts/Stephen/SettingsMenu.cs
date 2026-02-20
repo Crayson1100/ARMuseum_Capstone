@@ -8,7 +8,8 @@ using UnityEngine.UI;
 public class SettingsMenu : MonoBehaviour
 {
     [Header("Main UI")]
-    [SerializeField] GameObject settingsMenu;
+    [SerializeField] GameObject advSettingsMenu;
+    [SerializeField] GameObject mainSettingsMenu;
     [SerializeField] Camera mainCamera;
 
     [Header("Audio")]
@@ -26,26 +27,10 @@ public class SettingsMenu : MonoBehaviour
     private bool isMuted = false;
     private float previousVolume = 0f;
 
-    //private void Start()
-    //{
-    //    if (PlayerPrefs.HasKey("masterVolume"))
-    //    {
-    //        LoadVolume();
-    //    }
-    //    else
-    //    {
-    //        SetMusicVolume();
-    //    }
-    //}
-    //void Awake()
-    //{
-    //    masterSlider.value = 50f;
-    //    musicSlider.value = 50f;
-    //    soundSlider.value = 50f;
-    //}
     public void ToggleSettings()
     {
-        settingsMenu.SetActive(!settingsMenu.activeSelf);
+        advSettingsMenu.SetActive(true);
+        mainSettingsMenu.SetActive(false);
     }
     public void ZoomIn()
     {
@@ -120,7 +105,8 @@ public class SettingsMenu : MonoBehaviour
     }
     public void Exit()
     {
-        settingsMenu.SetActive(false);
+        advSettingsMenu.SetActive(false);
+        mainSettingsMenu.SetActive(true);
     }
 }
 
