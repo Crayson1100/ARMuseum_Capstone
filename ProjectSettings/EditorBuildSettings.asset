@@ -5,9 +5,15 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Ethan's New Test Scene.unity
     guid: b03c57a1c750b1840a994375f48f5e5a
+  - enabled: 0
+    path: Assets/Scenes/Stephen's New Test Scene.unity
+    guid: a6824ff51cfa21c4e9f3b03ba5cccd1c
+  - enabled: 1
+    path: Assets/Scenes/Stephen's New Test Scene 1.unity
+    guid: 2af59b23d6c21c34a8e579d367f0ba83
   m_configObjects:
     UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: e7f3fa89fd61dce46af518c5afac4051, type: 2}
     UnityEditor.XR.ARKit.ARKitSettings: {fileID: 11400000, guid: a0d4a6a2deea1f3469a22bcafba4b822, type: 2}
