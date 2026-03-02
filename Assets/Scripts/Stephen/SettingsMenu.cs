@@ -108,5 +108,9 @@ public class SettingsMenu : MonoBehaviour
         advSettingsMenu.SetActive(false);
         mainSettingsMenu.SetActive(true);
     }
+    public void LeaveApp()
+    {
+        Application.Quit();
+    }
 }
 
