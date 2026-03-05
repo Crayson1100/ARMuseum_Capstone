@@ -212,7 +212,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &91156320
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1529,12 +1529,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6dc15334af7ccd4cba39f37a3a7d303, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SettingsMenu
-  settingsMenu: {fileID: 677100106}
+  advSettingsMenu: {fileID: 0}
+  mainSettingsMenu: {fileID: 0}
   mainCamera: {fileID: 1180033303}
   mixer: {fileID: 24100000, guid: a13ed3a82557a6847831b13212c5b406, type: 2}
   masterSlider: {fileID: 1344956017}
   musicSlider: {fileID: 1308933016}
   soundSlider: {fileID: 1741762254}
+  masterIcon: {fileID: 0}
+  musicIcon: {fileID: 0}
+  sfxIcon: {fileID: 0}
+  volumeSprite: {fileID: 0}
+  mutedSprite: {fileID: 0}
   fontSlider: {fileID: 209769381}
   fontText: {fileID: 98099220}
   allUIText:
@@ -3578,7 +3584,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1694130246
 Transform:
   m_ObjectHideFlags: 0
