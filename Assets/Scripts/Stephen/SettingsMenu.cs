@@ -122,7 +122,7 @@ public class SettingsMenu : MonoBehaviour
         }
         else
         {
-            masterSlider.value = lastMasterVolume;
+            //masterSlider.value = lastMasterVolume;
             SetMasterVolume();
             masterIcon.sprite = volumeSprite;
         }
@@ -140,7 +140,7 @@ public class SettingsMenu : MonoBehaviour
         }
         else
         {
-            musicSlider.value = lastMusicVolume;
+            //musicSlider.value = lastMusicVolume;
             SetMusicVolume();
             musicIcon.sprite = volumeSprite;
         }
@@ -158,7 +158,7 @@ public class SettingsMenu : MonoBehaviour
         }
         else
         {
-            soundSlider.value = lastSFXVolume;
+            //soundSlider.value = lastSFXVolume;
             SetSoundVolume();
             sfxIcon.sprite = volumeSprite;
         }
