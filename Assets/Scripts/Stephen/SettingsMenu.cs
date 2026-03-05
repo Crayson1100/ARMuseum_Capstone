@@ -1,8 +1,6 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.Audio;
-using UnityEngine.Rendering;
-using Unity.Hierarchy;
 using UnityEngine.UI;
 
 public class SettingsMenu : MonoBehaviour
@@ -14,9 +12,26 @@ public class SettingsMenu : MonoBehaviour
 
     [Header("Audio")]
     [SerializeField] AudioMixer mixer;
+
     [SerializeField] Slider masterSlider;
     [SerializeField] Slider musicSlider;
     [SerializeField] Slider soundSlider;
+
+    [Header("Audio Icons")]
+    [SerializeField] Image masterIcon;
+    [SerializeField] Image musicIcon;
+    [SerializeField] Image sfxIcon;
+
+    [SerializeField] Sprite volumeSprite;
+    [SerializeField] Sprite mutedSprite;
+
+    private bool masterMuted;
+    private bool musicMuted;
+    private bool sfxMuted;
+
+    private float lastMasterVolume = 1f;
+    private float lastMusicVolume = 1f;
+    private float lastSFXVolume = 1f;
 
     [Header("Font")]
     [SerializeField] Slider fontSlider;
@@ -24,71 +39,147 @@ public class SettingsMenu : MonoBehaviour
     [SerializeField] TMP_Text[] allUIText;
 
     float defaultOrthoSize = 5f;
-    private bool isMuted = false;
-    private float previousVolume = 0f;
+
+    private void Start()
+    {
+        LoadVolume();
+    }
+
+    // =====================
+    // MENU
+    // =====================
 
     public void ToggleSettings()
     {
         advSettingsMenu.SetActive(true);
         mainSettingsMenu.SetActive(false);
     }
+
+    public void Exit()
+    {
+        advSettingsMenu.SetActive(false);
+        mainSettingsMenu.SetActive(true);
+    }
+
+    public void LeaveApp()
+    {
+        Application.Quit();
+    }
+
+    // =====================
+    // CAMERA ZOOM
+    // =====================
+
     public void ZoomIn()
     {
         mainCamera.orthographicSize -= 1f;
     }
+
     public void ZoomOut()
     {
         mainCamera.orthographicSize += 1f;
     }
-    private void LoadVolume()
+
+    // =====================
+    // AUDIO
+    // =====================
+
+    void SetVolume(string parameter, float value)
     {
-        //musicSlider.value = PlayerPrefs.GetFloat("musicVolume");
-        SetMasterVolume();
-        SetMusicVolume();
-        SetSoundVolume();
+        value = Mathf.Clamp(value, 0.0001f, 1f);
+        mixer.SetFloat(parameter, Mathf.Log10(value) * 20);
     }
+
     public void SetMasterVolume()
     {
-        float volume = masterSlider.value;
-        mixer.SetFloat("Master", Mathf.Log10(volume) * 20);
-        //PlayerPrefs.SetFloat("masterVolume", volume);
+        SetVolume("Master", masterSlider.value);
+        PlayerPrefs.SetFloat("masterVolume", masterSlider.value);
     }
+
+    public void SetMusicVolume()
+    {
+        SetVolume("Music", musicSlider.value);
+        PlayerPrefs.SetFloat("musicVolume", musicSlider.value);
+    }
+
+    public void SetSoundVolume()
+    {
+        SetVolume("SFX", soundSlider.value);
+        PlayerPrefs.SetFloat("sfxVolume", soundSlider.value);
+    }
+
+    // =====================
+    // MUTE TOGGLES
+    // =====================
+
     public void ToggleMuteMaster()
     {
-        if (!isMuted)
+        if (!masterMuted)
         {
-            mixer.GetFloat("Master", out previousVolume);
-
+            lastMasterVolume = masterSlider.value;
             mixer.SetFloat("Master", -80f);
-            isMuted = true;
+            masterIcon.sprite = mutedSprite;
         }
         else
         {
-            mixer.SetFloat("Master", previousVolume);
-            isMuted = false;
+            masterSlider.value = lastMasterVolume;
+            SetMasterVolume();
+            masterIcon.sprite = volumeSprite;
         }
+
+        masterMuted = !masterMuted;
     }
-    public void SetMusicVolume()
-    {
-        float volume = musicSlider.value;
-        mixer.SetFloat("Music", Mathf.Log10(volume) * 20);
-        //PlayerPrefs.SetFloat("musicVolume", volume);
-    }
+
     public void ToggleMuteMusic()
     {
-        mixer.SetFloat("Music", -80f);
-    }
-    public void SetSoundVolume()
-    {
-        float volume = soundSlider.value;
-        mixer.SetFloat("SFX", Mathf.Log10(volume) * 20);
-        //PlayerPrefs.SetFloat("soundVolume", volume);
+        if (!musicMuted)
+        {
+            lastMusicVolume = musicSlider.value;
+            mixer.SetFloat("Music", -80f);
+            musicIcon.sprite = mutedSprite;
+        }
+        else
+        {
+            musicSlider.value = lastMusicVolume;
+            SetMusicVolume();
+            musicIcon.sprite = volumeSprite;
+        }
+
+        musicMuted = !musicMuted;
     }
 
     public void ToggleMuteSound()
     {
-        mixer.SetFloat("SFX", -80f);
+        if (!sfxMuted)
+        {
+            lastSFXVolume = soundSlider.value;
+            mixer.SetFloat("SFX", -80f);
+            sfxIcon.sprite = mutedSprite;
+        }
+        else
+        {
+            soundSlider.value = lastSFXVolume;
+            SetSoundVolume();
+            sfxIcon.sprite = volumeSprite;
+        }
+
+        sfxMuted = !sfxMuted;
     }
+
+    void LoadVolume()
+    {
+        masterSlider.value = PlayerPrefs.GetFloat("masterVolume", 1f);
+        musicSlider.value = PlayerPrefs.GetFloat("musicVolume", 1f);
+        soundSlider.value = PlayerPrefs.GetFloat("sfxVolume", 1f);
+
+        SetMasterVolume();
+        SetMusicVolume();
+        SetSoundVolume();
+    }
+
+    // =====================
+    // FONT SIZE
+    // =====================
 
     public void SetFontSize()
     {
@@ -100,17 +191,5 @@ public class SettingsMenu : MonoBehaviour
         }
 
         fontText.text = "A";
-        //fontText.text = "A" + size.ToString("0");
-
-    }
-    public void Exit()
-    {
-        advSettingsMenu.SetActive(false);
-        mainSettingsMenu.SetActive(true);
-    }
-    public void LeaveApp()
-    {
-        Application.Quit();
     }
 }
-
