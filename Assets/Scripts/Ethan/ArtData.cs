@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Video;
 
 
 /*
@@ -25,6 +26,7 @@ public class ArtData : ScriptableObject
     public string ArtistName;
     [Space(10)]
     public GameObject model;
+    public VideoClip clip;
 
 
 }

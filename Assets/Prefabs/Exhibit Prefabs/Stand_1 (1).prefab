@@ -111,7 +111,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d48a286e906e4114a927f45a87e587d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Exhibit
-  art: {fileID: 11400000, guid: fd700842248435a4a8c2b4a5bed969c9, type: 2}
+  art:
+  - {fileID: 11400000, guid: 97a031db8246c5a409b81eeb0732cc44, type: 2}
   artLocation:
   - {fileID: 8564056110519018779}
 --- !u!4 &6895173511892112288 stripped

@@ -1,5 +1,67 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4233301606035315578
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7562926165782519267}
+  m_Layer: 0
+  m_Name: ModelSpawn (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7562926165782519267
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4233301606035315578}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.478, y: 0.917, z: -0.9099}
+  m_LocalScale: {x: 1, y: 1.5, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 9189621110673266053}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &4709586740616025878
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6240443548643314880}
+  m_Layer: 0
+  m_Name: ModelSpawn (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6240443548643314880
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4709586740616025878}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.0884, y: 0.798, z: -1.3323}
+  m_LocalScale: {x: 1, y: 1.5, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 9189621110673266053}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6915418543714825342
 GameObject:
   m_ObjectHideFlags: 0
@@ -93,6 +155,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -4668074107676032118, guid: 47f167bbe63c53c47b8ed87a71c62cfc, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7066313016359840687}
+    - targetCorrespondingSourceObject: {fileID: -4668074107676032118, guid: 47f167bbe63c53c47b8ed87a71c62cfc, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7562926165782519267}
+    - targetCorrespondingSourceObject: {fileID: -4668074107676032118, guid: 47f167bbe63c53c47b8ed87a71c62cfc, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6240443548643314880}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 47f167bbe63c53c47b8ed87a71c62cfc, type: 3}
       insertIndex: -1
@@ -115,9 +183,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d48a286e906e4114a927f45a87e587d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Exhibit
-  art: {fileID: 11400000, guid: fd700842248435a4a8c2b4a5bed969c9, type: 2}
+  art: {fileID: 0}
   artLocation:
   - {fileID: 7066313016359840687}
+  - {fileID: 7562926165782519267}
+  - {fileID: 6240443548643314880}
 --- !u!4 &9189621110673266053 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4668074107676032118, guid: 47f167bbe63c53c47b8ed87a71c62cfc, type: 3}
