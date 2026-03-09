@@ -17,7 +17,7 @@ using UnityEngine.Video;
 [CreateAssetMenu(fileName = "Art Data", menuName = "Art Data")]
 public class ArtData : ScriptableObject
 {
-    public enum Type {MODEL, ANIMATION, MOVIE, ART}
+    public enum Type {MODEL, MOVIE, ART}
     public Type type;
     [Space(10)]
     public string ArtName;
