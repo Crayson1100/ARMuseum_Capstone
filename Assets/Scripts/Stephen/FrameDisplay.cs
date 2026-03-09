@@ -11,89 +11,43 @@ public class FrameDisplay : MonoBehaviour
 {
 
     public ArtData art;
-    private List<GameObject> displayObject = new();
-
-    public Transform[] artLocation;
+    public RawImage canvas;
 
 
     private void Start()
     {
-        if (art != null)
+        if (art != null && art.type == ArtData.Type.ART)
         {
-            if (artLocation.Length > 1)
-            {
-                for (int i = 0; i < artLocation.Length; i++)
-                {
-                    //displayObject.Add(Instantiate<Image>(art.model, artLocation[i].position, Quaternion.identity));
-
-                    ScaleModels(displayObject[i].transform, this.transform, artLocation.Count());
-                }
-            }
+            CanvasExtensions.SizeToParent(art.image, 0);
         }
 
     }
-
-    /// <summary>
-    /// Scale a model to an exhibits size
-    /// </summary>
-    /// <param name="model"></param>
-    /// <param name="exhibit"></param>
-    public static void ScaleModel(Transform model, Transform exhibit)
+}
+static class CanvasExtensions
+{
+    public static Vector2 SizeToParent(this RawImage image, float padding = 0)
     {
-        Renderer[] modelRenderers = model.GetComponentsInChildren<Renderer>();
-        Renderer[] tableRenderers = exhibit.GetComponentsInChildren<Renderer>();
-
-        if (tableRenderers.Length == 0 || tableRenderers == null) return;
-        if (modelRenderers.Length == 0 || modelRenderers == null) return;
-
-        model.localScale = Vector3.one;
-
-        Vector3 objectSize = GetBounds(modelRenderers).size;
-        Vector3 tableSize = GetBounds(tableRenderers).size;
-
-        float scaleX = tableSize.x / objectSize.x;
-        float scaleZ = tableSize.z / objectSize.z;
-
-        float scaleFactor = Mathf.Min(scaleX, scaleZ);
-
-        model.localScale *= scaleFactor;
-    }
-    public static void ScaleModels(Transform model, Transform exhibit, int displayLocations)
-    {
-        Renderer[] modelRenderers = model.GetComponentsInChildren<Renderer>();
-        Renderer[] tableRenderers = exhibit.GetComponentsInChildren<Renderer>();
-
-        if (tableRenderers.Length == 0 || tableRenderers == null) return;
-        if (modelRenderers.Length == 0 || modelRenderers == null) return;
-
-        model.localScale = Vector3.one;
-
-        Vector3 objectSize = GetBounds(modelRenderers).size;
-        Vector3 tableSize = GetBounds(tableRenderers).size;
-
-        float scaleX = tableSize.x / objectSize.x;
-        float scaleZ = tableSize.z / objectSize.z;
-
-        float scaleFactor = Mathf.Min(scaleX, scaleZ);
-
-        model.localScale *= (scaleFactor / displayLocations);
-    }
-    private static Bounds GetBounds(Renderer[] renderers)
-    {
-        Bounds returnBounds = renderers[0].bounds;
-        foreach (Renderer r in renderers)
+        var parent = image.transform.parent.GetComponent<RectTransform>();
+        var imageTransform = image.GetComponent<RectTransform>();
+        if (!parent) { return imageTransform.sizeDelta; } //if we don't have a parent, just return our current width;
+        padding = 1 - padding;
+        float w = 0, h = 0;
+        float ratio = image.texture.width / (float)image.texture.height;
+        var bounds = new Rect(0, 0, parent.rect.width, parent.rect.height);
+        if (Mathf.RoundToInt(imageTransform.eulerAngles.z) % 180 == 90)
         {
-            returnBounds.Encapsulate(r.bounds);
+            //Invert the bounds if the image is rotated
+            bounds.size = new Vector2(bounds.height, bounds.width);
         }
-        return returnBounds;
-    }
-
-    private void OnDrawGizmos()
-    {
-        foreach (var v in artLocation)
-        {
-            Gizmos.color = Color.blueViolet;
-            Gizmos.DrawSphere(v.position, 0.1f);
+        //Size by height first
+        h = bounds.height * padding;
+        w = h * ratio;
+        if (w > bounds.width * padding)
+        { //If it doesn't fit, fallback to width;
+            w = bounds.width * padding;
+            h = w / ratio;
         }
+        imageTransform.sizeDelta = new Vector2(w, h);
+        return imageTransform.sizeDelta;
     }
 }
