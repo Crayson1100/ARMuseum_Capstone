@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37372aeb3ae6c5e41b59c5f3b86233e4, type: 3}
   m_Name: StefsHorrorGameSO
   m_EditorClassIdentifier: Assembly-CSharp::ArtData
-  type: 0
-  ArtName: 
+  type: 1
+  ArtName: Stef's Horror Video
   ArtDescription: 
-  ArtistName: 
+  ArtistName: Stephen
   model: {fileID: 0}
-  clip: {fileID: 0}
+  clip: {fileID: 32900000, guid: 36ce0209f592cfc479fbb52ad645ea77, type: 3}

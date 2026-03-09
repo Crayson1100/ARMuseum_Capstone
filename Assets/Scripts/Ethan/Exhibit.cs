@@ -9,6 +9,7 @@ public class Exhibit : MonoBehaviour
 {
 
     public ArtData art;
+
     private List<GameObject> displayObject = new();
 
     public Transform[] artLocation;
