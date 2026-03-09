@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.Video;
 
 
@@ -17,7 +18,7 @@ using UnityEngine.Video;
 [CreateAssetMenu(fileName = "Art Data", menuName = "Art Data")]
 public class ArtData : ScriptableObject
 {
-    public enum Type {MODEL, ANIMATION, MOVIE, ART}
+    public enum Type {MODEL, MOVIE, ART}
     public Type type;
     [Space(10)]
     public string ArtName;
@@ -27,6 +28,7 @@ public class ArtData : ScriptableObject
     [Space(10)]
     public GameObject model;
     public VideoClip clip;
+    public RawImage image;
 
 
 }
