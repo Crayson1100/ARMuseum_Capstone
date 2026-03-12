@@ -7,6 +7,9 @@ using UnityEngine.XR.ARSubsystems;
 public class ImageTracker : MonoBehaviour
 {
     private ARTrackedImageManager trackedImages;
+    private ARAnchorManager anchorManager;
+    private bool anchorPlaced = false;
+
     public GameObject[] ArPrefabs;
     private Dictionary<string, GameObject> spawnedPrefabs = new Dictionary<string, GameObject>();
 
@@ -14,7 +17,7 @@ public class ImageTracker : MonoBehaviour
     private void Start()
     {
         trackedImages = GetComponent<ARTrackedImageManager>();
-
+        anchorManager = GetComponent<ARAnchorManager>();
 
         trackedImages.trackablesChanged.AddListener(OnTrackablesChanged);
     }
@@ -51,20 +54,41 @@ public class ImageTracker : MonoBehaviour
     }
     private void SpawnPrefab(ARTrackedImage trackedImage)
     {
-        GameObject prefab = FindPrefab(trackedImage.referenceImage.name);
+        if (anchorPlaced) return;
 
+        GameObject prefab = FindPrefab(trackedImage.referenceImage.name);
         if (prefab == null) return;
 
-        if (spawnedPrefabs.ContainsKey(trackedImage.referenceImage.name)) return;
+        if (trackedImage.trackingState != TrackingState.Tracking)
+            return;
 
         ARAnchor anchor = trackedImage.gameObject.AddComponent<ARAnchor>();
-        GameObject obj = Instantiate(prefab, anchor.transform.position, prefab.transform.rotation);
-        //obj.transform.rotation = Quaternion.FromToRotation(-obj.transform.up, Vector3.down) * obj.transform.rotation;
+        GameObject obj = Instantiate(prefab, anchor.transform);
+
+        obj.transform.localPosition = Vector3.zero;
+        obj.transform.localRotation = Quaternion.identity;
 
 
         spawnedPrefabs.Add(trackedImage.referenceImage.name, obj);
     }
 
 
-    
+    //private void SpawnPrefab(ARTrackedImage trackedImage)
+    //{
+    //    if (anchorPlaced) return;
+
+    //    GameObject prefab = FindPrefab(trackedImage.referenceImage.name);
+    //    if (prefab == null) return;
+
+    //    if (spawnedPrefabs.ContainsKey(trackedImage.referenceImage.name)) return;
+
+    //    ARAnchor anchor = trackedImage.gameObject.AddComponent<ARAnchor>();
+    //    GameObject obj = Instantiate(prefab, anchor.transform);
+
+    //    obj.transform.localPosition = Vector3.zero;
+    //    obj.transform.localRotation = Quaternion.identity;
+
+
+    //    spawnedPrefabs.Add(trackedImage.referenceImage.name, obj);
+    //}
 }
