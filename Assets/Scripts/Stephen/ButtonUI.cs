@@ -1,16 +1,23 @@
+using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-
 
 public class ButtonUI : MonoBehaviour
 {
-    public GameObject textPanel;
-    public void ShowUI()
+    [SerializeField] private List<GameObject> textPanels = new List<GameObject>();
+
+    public void ShowUI(int index)
     {
-        textPanel.SetActive(true);
+        if (index >= 0 && index < textPanels.Count)
+        {
+            textPanels[index].SetActive(true);
+        }
     }
-    public void HideUI()
+
+    public void HideUI(int index)
     {
-        textPanel.SetActive(false);
+        if (index >= 0 && index < textPanels.Count)
+        {
+            textPanels[index].SetActive(false);
+        }
     }
 }
