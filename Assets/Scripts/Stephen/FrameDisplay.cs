@@ -18,9 +18,9 @@ public class FrameDisplay : MonoBehaviour
     {
         if (art != null && art.type == ArtData.Type.ART)
         {
-            CanvasExtensions.SizeToParent(art.image, 0);
+            canvas.texture = art.image;   // display the texture
+            CanvasExtensions.SizeToParent(canvas, 0);
         }
-
     }
 }
 static class CanvasExtensions
