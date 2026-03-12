@@ -54,22 +54,28 @@ public class ImageTracker : MonoBehaviour
     }
     private void SpawnPrefab(ARTrackedImage trackedImage)
     {
-        if (anchorPlaced) return;
+        if (spawnedPrefabs.ContainsKey(trackedImage.referenceImage.name))
+                return;
+
+        if (trackedImage.trackingState != TrackingState.Tracking) return;
 
         GameObject prefab = FindPrefab(trackedImage.referenceImage.name);
         if (prefab == null) return;
 
-        if (trackedImage.trackingState != TrackingState.Tracking)
-            return;
+        GameObject anchorGO = new GameObject("ImageAnchor_" + trackedImage.referenceImage.name);
 
-        ARAnchor anchor = trackedImage.gameObject.AddComponent<ARAnchor>();
-        GameObject obj = Instantiate(prefab, anchor.transform);
+        anchorGO.transform.position = trackedImage.transform.position;
+        anchorGO.transform.rotation = trackedImage.transform.rotation;
 
+        ARAnchor anchor = anchorGO.AddComponent<ARAnchor>();
+
+        GameObject obj = Instantiate(prefab, anchorGO.transform);
         obj.transform.localPosition = Vector3.zero;
         obj.transform.localRotation = Quaternion.identity;
 
-
         spawnedPrefabs.Add(trackedImage.referenceImage.name, obj);
+
+        trackedImages.enabled = false;
     }
 
 
