@@ -275,6 +275,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a722db371d6ebab489ba02cb19eb6ad4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ImageTracker
+  anchorManager: {fileID: 0}
   ArPrefabs:
   - {fileID: 5894994957408691503, guid: 0222249004023c34bb2a20bebdef99f6, type: 3}
   - {fileID: 4588447008159106779, guid: dd14f42a77366384488308ffd58f6b9e, type: 3}

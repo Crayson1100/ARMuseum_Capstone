@@ -7,9 +7,6 @@ using UnityEngine.XR.ARSubsystems;
 public class ImageTracker : MonoBehaviour
 {
     private ARTrackedImageManager trackedImages;
-    private ARAnchorManager anchorManager;
-    private bool anchorPlaced = false;
-
     public GameObject[] ArPrefabs;
     private Dictionary<string, GameObject> spawnedPrefabs = new Dictionary<string, GameObject>();
 
@@ -17,7 +14,6 @@ public class ImageTracker : MonoBehaviour
     private void Start()
     {
         trackedImages = GetComponent<ARTrackedImageManager>();
-        anchorManager = GetComponent<ARAnchorManager>();
 
         trackedImages.trackablesChanged.AddListener(OnTrackablesChanged);
     }
@@ -57,7 +53,8 @@ public class ImageTracker : MonoBehaviour
         if (spawnedPrefabs.ContainsKey(trackedImage.referenceImage.name))
                 return;
 
-        if (trackedImage.trackingState != TrackingState.Tracking) return;
+        //if (trackedImage.trackingState == TrackingState.None)
+        //    return;
 
         GameObject prefab = FindPrefab(trackedImage.referenceImage.name);
         if (prefab == null) return;
@@ -75,7 +72,7 @@ public class ImageTracker : MonoBehaviour
 
         spawnedPrefabs.Add(trackedImage.referenceImage.name, obj);
 
-        trackedImages.enabled = false;
+        trackedImages.enabled = true;
     }
 
 
