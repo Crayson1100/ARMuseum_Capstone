@@ -16,11 +16,13 @@ public class SettingsMenu : MonoBehaviour
     [SerializeField] Slider masterSlider;
     [SerializeField] Slider musicSlider;
     [SerializeField] Slider soundSlider;
+    [SerializeField] Slider voiceSlider;
 
     [Header("Audio Icons")]
     [SerializeField] Image masterIcon;
     [SerializeField] Image musicIcon;
     [SerializeField] Image sfxIcon;
+    [SerializeField] Image voiceIcon;
 
     [SerializeField] Sprite volumeSprite;
     [SerializeField] Sprite mutedSprite;
@@ -28,10 +30,12 @@ public class SettingsMenu : MonoBehaviour
     private bool masterMuted;
     private bool musicMuted;
     private bool sfxMuted;
+    private bool voiceMuted;
 
     private float lastMasterVolume = 1f;
     private float lastMusicVolume = 1f;
     private float lastSFXVolume = 1f;
+    private float lastVoiceVolume = 1f;
 
     [Header("Font")]
     [SerializeField] Slider fontSlider;
@@ -107,6 +111,11 @@ public class SettingsMenu : MonoBehaviour
         SetVolume("SFX", soundSlider.value);
         PlayerPrefs.SetFloat("sfxVolume", soundSlider.value);
     }
+    public void SetVoiceVolume()
+    {
+        SetVolume("Voice", voiceSlider.value);
+        PlayerPrefs.SetFloat("voiceVolume", voiceSlider.value);
+    }
 
     // =====================
     // MUTE TOGGLES
@@ -165,16 +174,35 @@ public class SettingsMenu : MonoBehaviour
 
         sfxMuted = !sfxMuted;
     }
+    public void ToggleMuteVoice()
+    {
+        if (!voiceMuted)
+        {
+            lastVoiceVolume = voiceSlider.value;
+            mixer.SetFloat("Voice", -80f);
+            voiceIcon.sprite = mutedSprite;
+        }
+        else
+        {
+            //voiceSlider.value = lastVoiceVolume;
+            SetVoiceVolume();
+            voiceIcon.sprite = volumeSprite;
+        }
+
+        voiceMuted = !voiceMuted;
+    }
 
     void LoadVolume()
     {
         masterSlider.value = PlayerPrefs.GetFloat("masterVolume", 1f);
         musicSlider.value = PlayerPrefs.GetFloat("musicVolume", 1f);
         soundSlider.value = PlayerPrefs.GetFloat("sfxVolume", 1f);
+        voiceSlider.value = PlayerPrefs.GetFloat("voiceVolume", 1f);
 
         SetMasterVolume();
         SetMusicVolume();
         SetSoundVolume();
+        SetVoiceVolume();
     }
 
     // =====================
