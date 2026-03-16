@@ -25,7 +25,7 @@ public class HeadsUI : MonoBehaviour
     {
         headPanel.SetActive(false);
 
-        playPauseButtonImage.sprite = playSprite;
+        playPauseButtonImage.sprite = pauseSprite;
         muteButtonImage.sprite = unmutedSprite;
     }
 
