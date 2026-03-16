@@ -29,6 +29,7 @@ public class ArtData : ScriptableObject
     public GameObject model;
     public VideoClip clip;
     public Texture image;
+    public AudioClip audioClip;
 
 
 }
