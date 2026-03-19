@@ -72,7 +72,7 @@ public class ImageTracker : MonoBehaviour
 
         spawnedPrefabs.Add(trackedImage.referenceImage.name, obj);
 
-        trackedImages.enabled = true;
+        //trackedImages.enabled = true;
     }
 
 

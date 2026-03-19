@@ -2,7 +2,7 @@
 - Project name: ARMuseum_Capstone
 - Unity version: Unity 6000.3.7f1
 - Active game object:
-  - Name: Video Object
+  - Name: XR Origin (Mobile AR)
   - Tag: Untagged
   - Layer: Default
 <!-- UNITY CODE ASSIST INSTRUCTIONS END -->
