@@ -6,7 +6,7 @@ using System.Collections.Generic;
 public class DragonTrigger : MonoBehaviour
 {
     public Transform platform;      // The object that moves
-    public float moveDistance = 1f; // How far up/down
+    public float moveDistance = 20f; // How far up/down
     public float moveSpeed = 2f;    // Movement speed
 
     private Vector3 startPos;
