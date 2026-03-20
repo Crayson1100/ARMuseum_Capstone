@@ -5,15 +5,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Video;
 
-
-/*
- * This will hold our:
- * Artist Information
- * Arist Audio
- * Model/Art
- * 
- */
-
 [Serializable]
 [CreateAssetMenu(fileName = "Art Data", menuName = "Art Data")]
 public class ArtData : ScriptableObject
@@ -29,6 +20,7 @@ public class ArtData : ScriptableObject
     public GameObject model;
     public VideoClip clip;
     public Texture image;
+    public AudioClip audioClip;
 
 
 }

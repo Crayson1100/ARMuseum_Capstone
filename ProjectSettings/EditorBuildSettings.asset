@@ -11,9 +11,12 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Stephen's New Test Scene.unity
     guid: a6824ff51cfa21c4e9f3b03ba5cccd1c
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Stephen's Scene.unity
     guid: 2af59b23d6c21c34a8e579d367f0ba83
+  - enabled: 1
+    path: Assets/Scenes/Ethan's Test Scene.unity
+    guid: 5684c2639771e9a4fbb11df2e51bd14b
   m_configObjects:
     UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: e7f3fa89fd61dce46af518c5afac4051, type: 2}
     UnityEditor.XR.ARKit.ARKitSettings: {fileID: 11400000, guid: a0d4a6a2deea1f3469a22bcafba4b822, type: 2}
