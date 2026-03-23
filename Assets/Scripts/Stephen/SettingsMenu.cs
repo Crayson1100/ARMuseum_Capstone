@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Audio;
@@ -10,22 +11,36 @@ public class SettingsMenu : MonoBehaviour
     [SerializeField] GameObject mainSettingsMenu;
     [SerializeField] Camera mainCamera;
 
-    [Header("Audio")]
+    [Header("Audio Mixer")]
     [SerializeField] AudioMixer mixer;
 
+    [Header("Sliders")]
     [SerializeField] Slider masterSlider;
     [SerializeField] Slider musicSlider;
-    [SerializeField] Slider soundSlider;
+    [SerializeField] Slider sfxSlider;
     [SerializeField] Slider voiceSlider;
 
-    [Header("Audio Icons")]
-    [SerializeField] Image masterIcon;
-    [SerializeField] Image musicIcon;
-    [SerializeField] Image sfxIcon;
-    [SerializeField] Image voiceIcon;
+    [Header("Voice Sources")]
+    [SerializeField] List<AudioSource> voiceSources = new List<AudioSource>();
 
-    [SerializeField] Sprite volumeSprite;
+    [Header("Mute Button Images")]
+    [SerializeField] Image masterButtonImage;
+    [SerializeField] Image musicButtonImage;
+    [SerializeField] Image sfxButtonImage;
+    [SerializeField] Image voiceButtonImage;
+
+    [Header("Volume Sprites")]
+    [SerializeField] Sprite maxVolumeSprite;
+    [SerializeField] Sprite halfVolumeSprite;
+    [SerializeField] Sprite quarterVolumeSprite;
     [SerializeField] Sprite mutedSprite;
+
+    private Sprite lastMasterSprite;
+    private Sprite lastMusicSprite;
+    private Sprite lastSFXSprite;
+    private Sprite lastVoiceSprite;
+
+
 
     private bool masterMuted;
     private bool musicMuted;
@@ -42,11 +57,10 @@ public class SettingsMenu : MonoBehaviour
     [SerializeField] TMP_Text fontText;
     [SerializeField] TMP_Text[] allUIText;
 
-    float defaultOrthoSize = 5f;
-
     private void Start()
     {
         LoadVolume();
+        RefreshAllIcons();
     }
 
     // =====================
@@ -74,21 +88,14 @@ public class SettingsMenu : MonoBehaviour
     // CAMERA ZOOM
     // =====================
 
-    public void ZoomIn()
-    {
-        mainCamera.orthographicSize -= 1f;
-    }
-
-    public void ZoomOut()
-    {
-        mainCamera.orthographicSize += 1f;
-    }
+    public void ZoomIn() => mainCamera.orthographicSize -= 1f;
+    public void ZoomOut() => mainCamera.orthographicSize += 1f;
 
     // =====================
     // AUDIO
     // =====================
 
-    void SetVolume(string parameter, float value)
+    private void SetVolume(string parameter, float value)
     {
         value = Mathf.Clamp(value, 0.0001f, 1f);
         mixer.SetFloat(parameter, Mathf.Log10(value) * 20);
@@ -96,26 +103,74 @@ public class SettingsMenu : MonoBehaviour
 
     public void SetMasterVolume()
     {
-        SetVolume("Master", masterSlider.value);
-        PlayerPrefs.SetFloat("masterVolume", masterSlider.value);
-    }
+        if (!masterMuted)
+        {
+            float value = masterSlider.value;
+            SetVolume("Master", value);
+            PlayerPrefs.SetFloat("masterVolume", value);
 
+            lastMasterSprite = GetVolumeSprite(value);
+            masterButtonImage.sprite = lastMasterSprite;
+        }
+    }
     public void SetMusicVolume()
     {
-        SetVolume("Music", musicSlider.value);
-        PlayerPrefs.SetFloat("musicVolume", musicSlider.value);
+        if (!musicMuted)
+        {
+            float value = musicSlider.value;
+            SetVolume("Music", value);
+            PlayerPrefs.SetFloat("musicVolume", value);
+
+            lastMusicSprite = GetVolumeSprite(value);
+            musicButtonImage.sprite = lastMusicSprite;
+        }
+    }
+    public void SetSFXVolume()
+    {
+        if (!sfxMuted)
+        {
+            float value = sfxSlider.value;
+            SetVolume("SFX", value);
+            PlayerPrefs.SetFloat("sfxVolume", value);
+
+            lastSFXSprite = GetVolumeSprite(value);
+            sfxButtonImage.sprite = lastSFXSprite;
+        }
     }
 
-    public void SetSoundVolume()
-    {
-        SetVolume("SFX", soundSlider.value);
-        PlayerPrefs.SetFloat("sfxVolume", soundSlider.value);
-    }
     public void SetVoiceVolume()
     {
-        SetVolume("Voice", voiceSlider.value);
-        PlayerPrefs.SetFloat("voiceVolume", voiceSlider.value);
+        if (!voiceMuted)
+        {
+            float value = voiceSlider.value;
+
+            SetVolume("Voice", value);
+            PlayerPrefs.SetFloat("voiceVolume", value);
+
+            foreach (AudioSource src in voiceSources)
+                if (src != null)
+                    src.volume = value;
+
+            lastVoiceSprite = GetVolumeSprite(value);
+            voiceButtonImage.sprite = lastVoiceSprite;
+        }
     }
+
+
+    Sprite GetVolumeSprite(float value)
+    {
+        if (value <= 0.001f)
+            return mutedSprite;
+
+        if (value >= 0.75f)
+            return maxVolumeSprite;
+
+        if (value >= 0.40f)
+            return halfVolumeSprite;
+
+        return quarterVolumeSprite;
+    }
+
 
     // =====================
     // MUTE TOGGLES
@@ -127,17 +182,16 @@ public class SettingsMenu : MonoBehaviour
         {
             lastMasterVolume = masterSlider.value;
             mixer.SetFloat("Master", -80f);
-            masterIcon.sprite = mutedSprite;
         }
         else
         {
-            //masterSlider.value = lastMasterVolume;
             SetMasterVolume();
-            masterIcon.sprite = volumeSprite;
         }
 
         masterMuted = !masterMuted;
+        UpdateIcon(masterButtonImage, masterMuted, lastMasterSprite);
     }
+
 
     public void ToggleMuteMusic()
     {
@@ -145,63 +199,84 @@ public class SettingsMenu : MonoBehaviour
         {
             lastMusicVolume = musicSlider.value;
             mixer.SetFloat("Music", -80f);
-            musicIcon.sprite = mutedSprite;
         }
         else
         {
-            //musicSlider.value = lastMusicVolume;
             SetMusicVolume();
-            musicIcon.sprite = volumeSprite;
         }
 
         musicMuted = !musicMuted;
+        UpdateIcon(musicButtonImage, musicMuted, lastMusicSprite);
     }
 
-    public void ToggleMuteSound()
+    public void ToggleMuteSFX()
     {
         if (!sfxMuted)
         {
-            lastSFXVolume = soundSlider.value;
+            lastSFXVolume = sfxSlider.value;
             mixer.SetFloat("SFX", -80f);
-            sfxIcon.sprite = mutedSprite;
         }
         else
         {
-            //soundSlider.value = lastSFXVolume;
-            SetSoundVolume();
-            sfxIcon.sprite = volumeSprite;
+            SetSFXVolume();
         }
 
         sfxMuted = !sfxMuted;
+        UpdateIcon(sfxButtonImage, sfxMuted, lastSFXSprite);
     }
+
     public void ToggleMuteVoice()
     {
         if (!voiceMuted)
         {
             lastVoiceVolume = voiceSlider.value;
             mixer.SetFloat("Voice", -80f);
-            voiceIcon.sprite = mutedSprite;
+
+            foreach (AudioSource src in voiceSources)
+                if (src != null)
+                    src.mute = true;
         }
         else
         {
-            //voiceSlider.value = lastVoiceVolume;
             SetVoiceVolume();
-            voiceIcon.sprite = volumeSprite;
+
+            foreach (AudioSource src in voiceSources)
+                if (src != null)
+                    src.mute = false;
         }
 
         voiceMuted = !voiceMuted;
+        UpdateIcon(voiceButtonImage, voiceMuted, lastVoiceSprite);
+    }
+    void UpdateIcon(Image icon, bool isMuted, Sprite lastSprite)
+    {
+        icon.sprite = isMuted ? mutedSprite : lastSprite;
     }
 
-    void LoadVolume()
+
+    private void RefreshAllIcons()
+    {
+        UpdateIcon(masterButtonImage, masterMuted, lastMasterSprite);
+        UpdateIcon(musicButtonImage, musicMuted, lastMusicSprite);
+        UpdateIcon(sfxButtonImage, sfxMuted, lastSFXSprite);
+        UpdateIcon(voiceButtonImage, voiceMuted, lastVoiceSprite);
+
+    }
+
+    // =====================
+    // LOAD SETTINGS
+    // =====================
+
+    private void LoadVolume()
     {
         masterSlider.value = PlayerPrefs.GetFloat("masterVolume", 1f);
         musicSlider.value = PlayerPrefs.GetFloat("musicVolume", 1f);
-        soundSlider.value = PlayerPrefs.GetFloat("sfxVolume", 1f);
+        sfxSlider.value = PlayerPrefs.GetFloat("sfxVolume", 1f);
         voiceSlider.value = PlayerPrefs.GetFloat("voiceVolume", 1f);
 
         SetMasterVolume();
         SetMusicVolume();
-        SetSoundVolume();
+        SetSFXVolume();
         SetVoiceVolume();
     }
 
@@ -214,9 +289,7 @@ public class SettingsMenu : MonoBehaviour
         float size = fontSlider.value;
 
         foreach (TMP_Text text in allUIText)
-        {
             text.fontSize = size;
-        }
 
         fontText.text = "A";
     }

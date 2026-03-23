@@ -139,8 +139,8 @@ TextureImporter:
       name: New_Volume_Buttons_-_Better_Gradient_0
       rect:
         serializedVersion: 2
-        x: 129
-        y: 334
+        x: 130
+        y: 333
         width: 55
         height: 55
       alignment: 0
@@ -179,6 +179,94 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: New_Volume_Buttons_-_Better_Gradient_2
+      rect:
+        serializedVersion: 2
+        x: 307
+        y: 319
+        width: 66
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5dbd1433daf55a46a2f2cc168bd66b5
+      internalID: 608498893
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: New_Volume_Buttons_-_Better_Gradient_3
+      rect:
+        serializedVersion: 2
+        x: 307
+        y: 251
+        width: 66
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb7570c976317d24d8c11a26f6e47d0c
+      internalID: -616346347
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: New_Volume_Buttons_-_Better_Gradient_4
+      rect:
+        serializedVersion: 2
+        x: 308
+        y: 178
+        width: 66
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 88811e56fe28bd64e81a992004cbbb53
+      internalID: -2085386607
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: New_Volume_Buttons_-_Better_Gradient_5
+      rect:
+        serializedVersion: 2
+        x: 309
+        y: 106
+        width: 66
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ac719b19f3839c4ca46a9a1f2ef8828
+      internalID: -1143743699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
@@ -195,6 +283,10 @@ TextureImporter:
     nameFileIdTable:
       New_Volume_Buttons_-_Better_Gradient_0: 7413141
       New_Volume_Buttons_-_Better_Gradient_1: 89741606
+      New_Volume_Buttons_-_Better_Gradient_2: 608498893
+      New_Volume_Buttons_-_Better_Gradient_3: -616346347
+      New_Volume_Buttons_-_Better_Gradient_4: -2085386607
+      New_Volume_Buttons_-_Better_Gradient_5: -1143743699
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
