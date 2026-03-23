@@ -9,6 +9,7 @@ public class ImageTracker : MonoBehaviour
     private ARTrackedImageManager trackedImages;
     public GameObject[] ArPrefabs;
     private Dictionary<string, GameObject> spawnedPrefabs = new Dictionary<string, GameObject>();
+    private GameObject spawnedPrefab;
 
 
     private void Start()
@@ -25,7 +26,8 @@ public class ImageTracker : MonoBehaviour
         {
             //Trackable Image loaded into image tracker
 
-            SpawnPrefab(entry);
+            
+            spawnedPrefab = SpawnPrefab(entry);
         }
 
         foreach (var entry in args.updated)
@@ -48,16 +50,16 @@ public class ImageTracker : MonoBehaviour
 
         return null;
     }
-    private void SpawnPrefab(ARTrackedImage trackedImage)
+    private GameObject SpawnPrefab(ARTrackedImage trackedImage)
     {
         if (spawnedPrefabs.ContainsKey(trackedImage.referenceImage.name))
-                return;
+                return null;
 
         //if (trackedImage.trackingState == TrackingState.None)
         //    return;
 
         GameObject prefab = FindPrefab(trackedImage.referenceImage.name);
-        if (prefab == null) return;
+        if (prefab == null) return null;
 
         GameObject anchorGO = new GameObject("ImageAnchor_" + trackedImage.referenceImage.name);
 
@@ -71,6 +73,7 @@ public class ImageTracker : MonoBehaviour
         obj.transform.localRotation = Quaternion.identity;
 
         spawnedPrefabs.Add(trackedImage.referenceImage.name, obj);
+        return obj;
 
         //trackedImages.enabled = true;
     }

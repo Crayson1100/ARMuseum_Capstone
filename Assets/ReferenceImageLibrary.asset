@@ -23,7 +23,7 @@ MonoBehaviour:
     m_SerializedTextureGuid:
       m_GuidLow: 7549383077541259607
       m_GuidHigh: 12899898559025432297
-    m_Size: {x: 0.1, y: 0.08922594}
+    m_Size: {x: 1, y: 0.8922594}
     m_SpecifySize: 1
     m_Name: Blocs Logo
     m_Texture: {fileID: 2800000, guid: 22312957cbe968c4e9c6489164a505b3, type: 3}
@@ -33,7 +33,7 @@ MonoBehaviour:
     m_SerializedTextureGuid:
       m_GuidLow: 2807118714600821215
       m_GuidHigh: 16450744881174191019
-    m_Size: {x: 0.1, y: 0.09375}
+    m_Size: {x: 1, y: 0.9375}
     m_SpecifySize: 1
     m_Name: sad ethan
     m_Texture: {fileID: 2800000, guid: 222211dfe39926f4ab9bf6444fc94ce4, type: 3}
@@ -43,27 +43,17 @@ MonoBehaviour:
     m_SerializedTextureGuid:
       m_GuidLow: 15890065245965477355
       m_GuidHigh: 11076025180427514392
-    m_Size: {x: 0.1, y: 0.097937025}
+    m_Size: {x: 1, y: 0.97937024}
     m_SpecifySize: 1
     m_Name: Dragon
     m_Texture: {fileID: 2800000, guid: eb8d65ebda26dc8418f2a9e237f2b599, type: 3}
-  - m_SerializedGuid:
-      m_GuidLow: 4652149544848602395
-      m_GuidHigh: 13291587201182859189
-    m_SerializedTextureGuid:
-      m_GuidLow: 18119221462134133369
-      m_GuidHigh: 4737830597878036218
-    m_Size: {x: 0, y: 0}
-    m_SpecifySize: 1
-    m_Name: Barcode
-    m_Texture: {fileID: 2800000, guid: 8923927967ebfb74fa367fa0d327c041, type: 3}
   - m_SerializedGuid:
       m_GuidLow: 4665129041716739825
       m_GuidHigh: 10831043008189251464
     m_SerializedTextureGuid:
       m_GuidLow: 17461609073711186422
       m_GuidHigh: 1031728821782445066
-    m_Size: {x: 0, y: 0}
+    m_Size: {x: 1, y: 1.0263929}
     m_SpecifySize: 1
     m_Name: testImage
     m_Texture: {fileID: 2800000, guid: dd4b01f618eff2540afcdfa6e56f510e, type: 3}
