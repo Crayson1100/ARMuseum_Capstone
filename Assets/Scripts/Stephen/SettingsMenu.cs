@@ -178,7 +178,9 @@ public class SettingsMenu : MonoBehaviour
 
     public void ToggleMuteMaster()
     {
-        if (!masterMuted)
+        masterMuted = !masterMuted;
+
+        if (masterMuted)
         {
             lastMasterVolume = masterSlider.value;
             mixer.SetFloat("Master", -80f);
@@ -188,14 +190,16 @@ public class SettingsMenu : MonoBehaviour
             SetMasterVolume();
         }
 
-        masterMuted = !masterMuted;
         UpdateIcon(masterButtonImage, masterMuted, lastMasterSprite);
     }
 
 
+
     public void ToggleMuteMusic()
     {
-        if (!musicMuted)
+        musicMuted = !musicMuted;
+
+        if (musicMuted)
         {
             lastMusicVolume = musicSlider.value;
             mixer.SetFloat("Music", -80f);
@@ -205,13 +209,15 @@ public class SettingsMenu : MonoBehaviour
             SetMusicVolume();
         }
 
-        musicMuted = !musicMuted;
         UpdateIcon(musicButtonImage, musicMuted, lastMusicSprite);
     }
 
+
     public void ToggleMuteSFX()
     {
-        if (!sfxMuted)
+        sfxMuted = !sfxMuted;
+
+        if (sfxMuted)
         {
             lastSFXVolume = sfxSlider.value;
             mixer.SetFloat("SFX", -80f);
@@ -221,9 +227,9 @@ public class SettingsMenu : MonoBehaviour
             SetSFXVolume();
         }
 
-        sfxMuted = !sfxMuted;
         UpdateIcon(sfxButtonImage, sfxMuted, lastSFXSprite);
     }
+
 
     public void ToggleMuteVoice()
     {
