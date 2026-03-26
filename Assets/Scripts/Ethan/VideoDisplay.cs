@@ -70,6 +70,7 @@ public class VideoDisplay : MonoBehaviour
             currentVideo = 0;
         }
         else { currentVideo++; }
+        player.clip = art[currentVideo].clip;
     }
     [ContextMenu("Previous Video")]
     public void PreviousVideo()
@@ -82,6 +83,8 @@ public class VideoDisplay : MonoBehaviour
         {
             currentVideo--;
         }
+
+        player.clip = art[currentVideo].clip;
     }
     public void ShowPanel()
     {
