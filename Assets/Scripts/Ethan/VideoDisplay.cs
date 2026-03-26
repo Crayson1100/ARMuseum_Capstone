@@ -91,4 +91,13 @@ public class VideoDisplay : MonoBehaviour
     {
         videoPanel.SetActive(false);
     }
+    public void PlayVideo()
+    {
+        player.Play();
+    }
+    public void PauseVideo()
+    {
+        player.Pause();
+
+    }
 }
