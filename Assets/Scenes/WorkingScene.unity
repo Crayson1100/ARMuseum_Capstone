@@ -8730,7 +8730,7 @@ GameObject:
   - component: {fileID: 1164876215}
   - component: {fileID: 1164876219}
   m_Layer: 5
-  m_Name: Video Player Canvas
+  m_Name: Video Player (Canvas)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8853,7 +8853,7 @@ GameObject:
   - component: {fileID: 1165709930}
   - component: {fileID: 1165709929}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: ShowVid Button(Canvas)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
