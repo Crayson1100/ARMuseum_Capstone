@@ -9,11 +9,12 @@ public class VideoDisplay : MonoBehaviour
     public VideoPlayer player;
     [Space(5)]
     public List<ArtData> art;
-
+    private int currentVideo = 0;
+    [SerializeField] GameObject videoPanel;
 
     private void Start()
     {
-        if (art[0] != null && art[0].type == ArtData.Type.MOVIE)
+        if (art[currentVideo] != null && art[currentVideo].type == ArtData.Type.MOVIE)
         {
             player.clip = art[0].clip;
             SizeToParent(player, this.gameObject.transform);
@@ -49,5 +50,34 @@ public class VideoDisplay : MonoBehaviour
         player.transform.localScale = newScale;
 
         return newScale;
+    }
+    [ContextMenu("Next Video")]
+    public void NextVideo()
+    {
+        if (currentVideo == art.Count - 1)
+        {
+            currentVideo = 0;
+        }
+        else { currentVideo++; }
+    }
+    [ContextMenu("Previous Video")]
+    public void PreviousVideo()
+    {
+        if (currentVideo == 0)
+        {
+            currentVideo = art.Count - 1;
+        }
+        else
+        {
+            currentVideo--;
+        }
+    }
+    public void ShowPanel()
+    {
+        videoPanel.SetActive(true);
+    }
+    public void ExitPanel()
+    {
+        videoPanel.SetActive(false);
     }
 }
