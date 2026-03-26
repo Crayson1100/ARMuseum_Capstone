@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
@@ -7,14 +8,14 @@ public class VideoDisplay : MonoBehaviour
 {
     public VideoPlayer player;
     [Space(5)]
-    public ArtData art;
+    public List<ArtData> art;
 
 
     private void Start()
     {
-        if (art != null && art.type == ArtData.Type.MOVIE)
+        if (art[0] != null && art[0].type == ArtData.Type.MOVIE)
         {
-            player.clip = art.clip;
+            player.clip = art[0].clip;
             SizeToParent(player, this.gameObject.transform);
             player.SetDirectAudioMute(0, true);
 

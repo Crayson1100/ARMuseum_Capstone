@@ -68,6 +68,7 @@ public class ImageTracker : MonoBehaviour
 
         ARAnchor anchor = anchorGO.AddComponent<ARAnchor>();
 
+
         GameObject obj = Instantiate(prefab, anchorGO.transform);
         obj.transform.localPosition = Vector3.zero;
         obj.transform.localRotation = Quaternion.identity;

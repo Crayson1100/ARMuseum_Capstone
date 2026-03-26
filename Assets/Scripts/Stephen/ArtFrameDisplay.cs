@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 
 [Serializable]
-public class FrameDisplay : MonoBehaviour
+public class ArtFrameDisplay : MonoBehaviour
 {
 
     public ArtData art;
