@@ -23,6 +23,9 @@ public class VideoDisplay : MonoBehaviour
     private Sprite lastPlaySprite;
     private Sprite lastMuteSprite;
 
+    private bool masterMuted;
+
+
     private void Start()
     {
         if (art[currentVideo] != null && art[currentVideo].type == ArtData.Type.MOVIE)
@@ -102,5 +105,17 @@ public class VideoDisplay : MonoBehaviour
     {
         player.Pause();
 
+    }
+    public void ToggleMuteVideo()
+    {
+        masterMuted = !masterMuted;
+
+        //todo: mute video clip code
+
+        UpdateIcon(muteButtonImage, masterMuted, lastMuteSprite);
+    }
+    void UpdateIcon(Image icon, bool isMuted, Sprite lastSprite)
+    {
+        icon.sprite = isMuted ? mutedSprite : lastSprite;
     }
 }
