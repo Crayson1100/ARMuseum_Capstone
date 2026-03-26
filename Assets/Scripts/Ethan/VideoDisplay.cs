@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.UIElements;
 using UnityEngine.Video;
 
 public class VideoDisplay : MonoBehaviour
@@ -11,6 +10,18 @@ public class VideoDisplay : MonoBehaviour
     public List<ArtData> art;
     private int currentVideo = 0;
     [SerializeField] GameObject videoPanel;
+
+    [Header("Mute Button Images")]
+    [SerializeField] Image playButtonImage;
+    [SerializeField] Image muteButtonImage;
+
+    [Header("Volume Sprites")]
+    [SerializeField] Sprite pauseButtonSprite;
+    [SerializeField] Sprite mutedSprite;
+    [SerializeField] Sprite unmutedSprite;
+
+    private Sprite lastPlaySprite;
+    private Sprite lastMuteSprite;
 
     private void Start()
     {
