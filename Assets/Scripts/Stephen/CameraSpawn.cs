@@ -15,6 +15,8 @@ public class CameraSpawn : MonoBehaviour
     [Header("Object To Move (Usually AR Session Origin)")]
     public Transform arContentRoot;
 
+    private bool hasSpawned = false;
+
     private void OnEnable()
     {
         trackedImageManager.trackedImagesChanged += OnTrackedImagesChanged;
@@ -27,6 +29,9 @@ public class CameraSpawn : MonoBehaviour
 
     private void OnTrackedImagesChanged(ARTrackedImagesChangedEventArgs args)
     {
+        if (hasSpawned)
+            return;
+
         foreach (var trackedImage in args.added)
             HandleImage(trackedImage);
 
@@ -59,6 +64,9 @@ public class CameraSpawn : MonoBehaviour
                 Debug.LogWarning("Unrecognized image: " + imageName);
                 break;
         }
+
+        // Disable all tracked images after first success
+        DisableAllTracking();
     }
 
     private void MoveToSpawn(Transform spawn)
@@ -70,5 +78,21 @@ public class CameraSpawn : MonoBehaviour
         arContentRoot.rotation = spawn.rotation;
 
         Debug.Log("Moved AR content to: " + spawn.name);
+    }
+
+    private void DisableAllTracking()
+    {
+        hasSpawned = true;
+
+        // Disable the image tracking system
+        trackedImageManager.enabled = false;
+
+        // Hide any tracked image objects still in the scene
+        foreach (var trackedImage in trackedImageManager.trackables)
+        {
+            trackedImage.gameObject.SetActive(false);
+        }
+
+        Debug.Log("Image tracking disabled after first spawn.");
     }
 }
