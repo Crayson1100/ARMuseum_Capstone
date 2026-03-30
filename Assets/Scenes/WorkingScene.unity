@@ -1098,7 +1098,7 @@ MonoBehaviour:
   spawnPoint2: {fileID: 1903416222}
   spawnPoint3: {fileID: 189542253}
   arContentRoot: {fileID: 68793684}
-  museumRoot: {fileID: 0}
+  museumRoot: {fileID: 1917264391}
 --- !u!1 &72368164
 GameObject:
   m_ObjectHideFlags: 0
@@ -14459,6 +14459,11 @@ Transform:
   - {fileID: 107451104}
   m_Father: {fileID: 2012394824}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1917264391 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 6bbe79961b5a7194ca12cc27eb31d9e1, type: 3}
+  m_PrefabInstance: {fileID: 92198857}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1924041420
 GameObject:
   m_ObjectHideFlags: 0
