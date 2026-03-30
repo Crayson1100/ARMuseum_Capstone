@@ -62,11 +62,11 @@ public class CameraSpawn : MonoBehaviour
                 SpawnAt(spawnPoint1);
                 break;
 
-            case "sad ethan":
+            case "Dragon":
                 SpawnAt(spawnPoint2);
                 break;
 
-            case "Dragon":
+            case "Image3":
                 SpawnAt(spawnPoint3);
                 break;
 
