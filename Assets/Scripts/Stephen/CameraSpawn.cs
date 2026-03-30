@@ -15,7 +15,17 @@ public class CameraSpawn : MonoBehaviour
     [Header("Object To Move (Usually AR Session Origin)")]
     public Transform arContentRoot;
 
+    [Header("Museum Root (Disabled at Start)")]
+    public GameObject museumRoot;
+
     private bool hasSpawned = false;
+
+    private void Start()
+    {
+        // Ensure museum is hidden at the beginning
+        if (museumRoot != null)
+            museumRoot.SetActive(false);
+    }
 
     private void OnEnable()
     {
@@ -49,50 +59,52 @@ public class CameraSpawn : MonoBehaviour
         switch (imageName)
         {
             case "Blocs Logo":
-                MoveToSpawn(spawnPoint1);
+                SpawnAt(spawnPoint1);
                 break;
 
             case "sad ethan":
-                MoveToSpawn(spawnPoint2);
+                SpawnAt(spawnPoint2);
                 break;
 
             case "Dragon":
-                MoveToSpawn(spawnPoint3);
+                SpawnAt(spawnPoint3);
                 break;
 
             default:
                 Debug.LogWarning("Unrecognized image: " + imageName);
-                break;
+                return;
         }
 
-        // Disable all tracked images after first success
-        DisableAllTracking();
+        DisableTracking();
     }
 
-    private void MoveToSpawn(Transform spawn)
+    private void SpawnAt(Transform spawn)
     {
         if (spawn == null || arContentRoot == null)
             return;
 
+        // Move AR content to the spawn point
         arContentRoot.position = spawn.position;
         arContentRoot.rotation = spawn.rotation;
 
-        Debug.Log("Moved AR content to: " + spawn.name);
-    }
+        // Activate the museum
+        if (museumRoot != null)
+            museumRoot.SetActive(true);
 
-    private void DisableAllTracking()
-    {
         hasSpawned = true;
 
-        // Disable the image tracking system
+        Debug.Log("Museum activated and AR content moved to: " + spawn.name);
+    }
+
+    private void DisableTracking()
+    {
+        // Disable tracking system
         trackedImageManager.enabled = false;
 
-        // Hide any tracked image objects still in the scene
+        // Hide any tracked image objects still visible
         foreach (var trackedImage in trackedImageManager.trackables)
-        {
             trackedImage.gameObject.SetActive(false);
-        }
 
-        Debug.Log("Image tracking disabled after first spawn.");
+        Debug.Log("Image tracking disabled after spawn.");
     }
 }

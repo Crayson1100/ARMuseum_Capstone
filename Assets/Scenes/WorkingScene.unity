@@ -1098,6 +1098,7 @@ MonoBehaviour:
   spawnPoint2: {fileID: 1903416222}
   spawnPoint3: {fileID: 189542253}
   arContentRoot: {fileID: 68793684}
+  museumRoot: {fileID: 1966229534}
 --- !u!1 &72368164
 GameObject:
   m_ObjectHideFlags: 0
@@ -1243,6 +1244,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 6bbe79961b5a7194ca12cc27eb31d9e1, type: 3}
       propertyPath: m_Name
       value: 3rdflooor
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6bbe79961b5a7194ca12cc27eb31d9e1, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5209,7 +5214,7 @@ GameObject:
   m_Component:
   - component: {fileID: 639628701}
   m_Layer: 0
-  m_Name: GalleryPrefab
+  m_Name: 'GalleryPrefab '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14553,6 +14558,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 639628701}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1966229534 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 6bbe79961b5a7194ca12cc27eb31d9e1, type: 3}
+  m_PrefabInstance: {fileID: 92198857}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1972525847
 PrefabInstance:
   m_ObjectHideFlags: 0
