@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37372aeb3ae6c5e41b59c5f3b86233e4, type: 3}
+  m_Name: Celeste_Emote3
+  m_EditorClassIdentifier: Assembly-CSharp::ArtData
+  type: 2
+  ArtName: Emote - Glowing
+  ArtDescription: 
+  ArtistName: Celeste Coomber
+  model: {fileID: 0}
+  clip: {fileID: 0}
+  image: {fileID: 2800000, guid: 82df9ff51d8e6544faff07ff1c7d3cb7, type: 3}
+  audioClip: {fileID: 0}
