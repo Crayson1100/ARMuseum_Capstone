@@ -297,6 +297,6 @@ public class SettingsMenu : MonoBehaviour
         foreach (TMP_Text text in allUIText)
             text.fontSize = size;
 
-        fontText.text = "A";
+        fontText.text = "Font Size";
     }
 }
