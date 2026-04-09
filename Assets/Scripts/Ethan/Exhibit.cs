@@ -8,7 +8,7 @@ using UnityEngine;
 public class Exhibit : MonoBehaviour
 {
 
-    public ArtData art;
+    public ArtData[] art;
 
     private List<GameObject> displayObject = new();
 
@@ -19,19 +19,33 @@ public class Exhibit : MonoBehaviour
     {
         if (art != null)
         {
-            if (artLocation.Length > 1)
+            if (artLocation.Length > 1 && art.Length == artLocation.Length)
             {
                 for (int i = 0; i < artLocation.Length; i++)
                 {
-                    displayObject.Add(Instantiate<GameObject>(art.model, artLocation[i].position, Quaternion.identity));
+                    displayObject.Add(Instantiate<GameObject>(art[i].model, artLocation[i].position, Quaternion.identity));
 
-                    ScaleModels(displayObject[i].transform, this.transform, artLocation.Count());
+                    ScaleModels(displayObject[i].transform, this.transform, artLocation.Length - 1);
+                }
+            }
+            else if (artLocation.Length > 1 && art.Length < artLocation.Length)
+            {
+                if (artLocation.Length <= 0) return;
+
+                for (int i = 0; i < artLocation.Length; i++)
+                {
+                    var artIndex = i;
+                    artIndex = Mathf.Clamp(artIndex, 0, art.Length - 1 );
+
+                    displayObject.Add(Instantiate<GameObject>(art[artIndex].model, artLocation[i].position, Quaternion.identity));
+
+                    ScaleModels(displayObject[i].transform, this.transform, artLocation.Length - 1);
                 }
             }
             else
             {
-
-                displayObject.Add(Instantiate<GameObject>(art.model, artLocation[0].position, Quaternion.identity));
+                if (art[0].model == null) return;
+                displayObject.Add(Instantiate<GameObject>(art[0].model, artLocation[0].position, Quaternion.identity));
 
                 ScaleModel(displayObject[0].transform, this.transform);
             }
@@ -70,8 +84,8 @@ public class Exhibit : MonoBehaviour
         Renderer[] modelRenderers = model.GetComponentsInChildren<Renderer>();
         Renderer[] tableRenderers = exhibit.GetComponentsInChildren<Renderer>();
 
-        if (tableRenderers.Length == 0 || tableRenderers == null) return;
-        if (modelRenderers.Length == 0 || modelRenderers == null) return;
+        if ( tableRenderers == null || tableRenderers.Length == 0 ) return;
+        if (modelRenderers == null || modelRenderers.Length == 0) return;
 
         model.localScale = Vector3.one;
 
