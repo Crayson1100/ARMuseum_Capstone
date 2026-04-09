@@ -2,7 +2,7 @@
 - Project name: ARMuseum_Capstone
 - Unity version: Unity 6000.3.7f1
 - Active game object:
-  - Name: unbevel1
+  - Name: Multi-Stand
   - Tag: Untagged
   - Layer: Default
 <!-- UNITY CODE ASSIST INSTRUCTIONS END -->
