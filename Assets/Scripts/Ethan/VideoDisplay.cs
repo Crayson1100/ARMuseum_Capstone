@@ -17,14 +17,14 @@ public class VideoDisplay : MonoBehaviour
 
     [Header("Volume Sprites")]
     [SerializeField] Sprite pauseButtonSprite;
+    [SerializeField] Sprite playButtonSprite;
     [SerializeField] Sprite mutedSprite;
     [SerializeField] Sprite unmutedSprite;
 
     private Sprite lastPlaySprite;
     private Sprite lastMuteSprite;
 
-    private bool masterMuted;
-
+    private bool videoMuted = false;
 
     private void Start()
     {
@@ -97,23 +97,26 @@ public class VideoDisplay : MonoBehaviour
     {
         videoPanel.SetActive(false);
     }
-    public void PlayVideo()
+    public void PlayorPauseVideo()
     {
-        player.Play();
-    }
-    public void PauseVideo()
-    {
-        player.Pause();
-
+        if (player.isPlaying)
+        {
+            player.Pause();
+            playButtonImage.sprite = playButtonSprite;
+        }
+        else
+        {
+            player.Play();
+            playButtonImage.sprite = pauseButtonSprite;
+        }
     }
     public void ToggleMuteVideo()
     {
-        masterMuted = !masterMuted;
-
-        //todo: mute video clip code
-
-        UpdateIcon(muteButtonImage, masterMuted, lastMuteSprite);
+        videoMuted = !videoMuted;
+        player.SetDirectAudioMute(0, videoMuted);
+        muteButtonImage.sprite = videoMuted ? mutedSprite : unmutedSprite;
     }
+
     void UpdateIcon(Image icon, bool isMuted, Sprite lastSprite)
     {
         icon.sprite = isMuted ? mutedSprite : lastSprite;

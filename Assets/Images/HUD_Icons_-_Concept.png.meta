@@ -359,10 +359,10 @@ TextureImporter:
       name: Exit
       rect:
         serializedVersion: 2
-        x: 804
-        y: 3357
-        width: 100
-        height: 100
+        x: 801
+        y: 3353
+        width: 104
+        height: 105
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
