@@ -21,9 +21,6 @@ public class VideoDisplay : MonoBehaviour
     [SerializeField] Sprite mutedSprite;
     [SerializeField] Sprite unmutedSprite;
 
-    private Sprite lastPlaySprite;
-    private Sprite lastMuteSprite;
-
     private bool videoMuted = false;
 
     private void Start()
@@ -115,10 +112,5 @@ public class VideoDisplay : MonoBehaviour
         videoMuted = !videoMuted;
         player.SetDirectAudioMute(0, videoMuted);
         muteButtonImage.sprite = videoMuted ? mutedSprite : unmutedSprite;
-    }
-
-    void UpdateIcon(Image icon, bool isMuted, Sprite lastSprite)
-    {
-        icon.sprite = isMuted ? mutedSprite : lastSprite;
     }
 }
