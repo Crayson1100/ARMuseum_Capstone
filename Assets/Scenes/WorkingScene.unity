@@ -2333,6 +2333,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 454465360}
     m_Modifications:
+    - target: {fileID: 852705585304020616, guid: 5e495a2b98412dc478b06f4da91920bc, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: f96821bbefeea864b9b418af4b8615ac, type: 2}
     - target: {fileID: 1473286234001090443, guid: 5e495a2b98412dc478b06f4da91920bc, type: 3}
       propertyPath: m_Name
       value: Stand_1 (1)
@@ -4725,6 +4729,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 454465360}
     m_Modifications:
+    - target: {fileID: 395362098498805108, guid: 5c32217e6cf17d644995a1c9f717686a, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: f96821bbefeea864b9b418af4b8615ac, type: 2}
     - target: {fileID: 3900473148005901791, guid: 5c32217e6cf17d644995a1c9f717686a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 19.62
@@ -13733,6 +13741,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 454465360}
     m_Modifications:
+    - target: {fileID: 2637151070602723261, guid: 2910fa778fab7284f924ddee5af6c151, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: -2249960132812961191, guid: 0b149211999f62b4b86aae7e8dd46c73, type: 3}
     - target: {fileID: 5131013534110757348, guid: 2910fa778fab7284f924ddee5af6c151, type: 3}
       propertyPath: m_LocalPosition.x
       value: 18.320004
@@ -13959,6 +13971,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 454465360}
     m_Modifications:
+    - target: {fileID: 852705585304020616, guid: 5e495a2b98412dc478b06f4da91920bc, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: f96821bbefeea864b9b418af4b8615ac, type: 2}
     - target: {fileID: 1473286234001090443, guid: 5e495a2b98412dc478b06f4da91920bc, type: 3}
       propertyPath: m_Name
       value: Stand_1 (2)
