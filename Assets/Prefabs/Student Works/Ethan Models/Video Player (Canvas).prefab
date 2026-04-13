@@ -516,7 +516,6 @@ GameObject:
   - component: {fileID: 1587803143941512277}
   - component: {fileID: 82883179328872390}
   - component: {fileID: 2523079774229869806}
-  - component: {fileID: 6938687419949295122}
   m_Layer: 5
   m_Name: Screen Panel
   m_TagString: Untagged
@@ -583,27 +582,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &6938687419949295122
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5190055424616569053}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dd99cef84035af04b99c56355bde9d60, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::VideoDisplay
-  player: {fileID: 5942566342526643051}
-  art:
-  - {fileID: 11400000, guid: 720e355561e05eb4e9f65b7ae2414c6e, type: 2}
-  videoPanel: {fileID: 5190055424616569053}
-  playButtonImage: {fileID: 2266110332610949790}
-  muteButtonImage: {fileID: 7697963720116261327}
-  pauseButtonSprite: {fileID: 42851223, guid: ffa5c3e8edcf2d64090bec9da08f9506, type: 3}
-  mutedSprite: {fileID: 89741606, guid: 76ce1f1a275d7dd4394bc2cf20f0d65b, type: 3}
-  unmutedSprite: {fileID: 7413141, guid: 76ce1f1a275d7dd4394bc2cf20f0d65b, type: 3}
 --- !u!1 &5219259036017390682
 GameObject:
   m_ObjectHideFlags: 0
@@ -766,6 +744,7 @@ MonoBehaviour:
   playButtonImage: {fileID: 2266110332610949790}
   muteButtonImage: {fileID: 7697963720116261327}
   pauseButtonSprite: {fileID: 42851223, guid: ffa5c3e8edcf2d64090bec9da08f9506, type: 3}
+  playButtonSprite: {fileID: 0}
   mutedSprite: {fileID: 89741606, guid: 76ce1f1a275d7dd4394bc2cf20f0d65b, type: 3}
   unmutedSprite: {fileID: 7413141, guid: 76ce1f1a275d7dd4394bc2cf20f0d65b, type: 3}
 --- !u!1 &7108508610201117761
