@@ -58,11 +58,11 @@ public class CameraSpawn : MonoBehaviour
 
         switch (imageName)
         {
-            case "Blocs Logo":
+            case "Image1":
                 SpawnAt(spawnPoint1);
                 break;
 
-            case "Dragon":
+            case "Image2":
                 SpawnAt(spawnPoint2);
                 break;
 

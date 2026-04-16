@@ -18,22 +18,32 @@ MonoBehaviour:
     m_Storage: []
   m_Images:
   - m_SerializedGuid:
-      m_GuidLow: 5101510171507191424
-      m_GuidHigh: 3319877236938351544
+      m_GuidLow: 4893053129700414740
+      m_GuidHigh: 15338565187576127137
     m_SerializedTextureGuid:
-      m_GuidLow: 7549383077541259607
-      m_GuidHigh: 12899898559025432297
-    m_Size: {x: 1, y: 0.8922594}
-    m_SpecifySize: 1
-    m_Name: Blocs Logo
-    m_Texture: {fileID: 2800000, guid: 22312957cbe968c4e9c6489164a505b3, type: 3}
+      m_GuidLow: 2942223208141542613
+      m_GuidHigh: 16969903637001653786
+    m_Size: {x: 0, y: 0}
+    m_SpecifySize: 0
+    m_Name: Image1
+    m_Texture: {fileID: 2800000, guid: 532fd4d5e06b28d41ace178c723581eb, type: 3}
   - m_SerializedGuid:
-      m_GuidLow: 4976527607112704937
-      m_GuidHigh: 1817989234547959991
+      m_GuidLow: 4951148258389455910
+      m_GuidHigh: 15509898064464463747
     m_SerializedTextureGuid:
-      m_GuidLow: 15890065245965477355
-      m_GuidHigh: 11076025180427514392
-    m_Size: {x: 1, y: 0.97937024}
-    m_SpecifySize: 1
-    m_Name: Dragon
-    m_Texture: {fileID: 2800000, guid: eb8d65ebda26dc8418f2a9e237f2b599, type: 3}
+      m_GuidLow: 11724260092532943307
+      m_GuidHigh: 4167597456622162811
+    m_Size: {x: 0, y: 0}
+    m_SpecifySize: 0
+    m_Name: Image2
+    m_Texture: {fileID: 2800000, guid: b5b6e9cbf06fa2b47b13c950ce47d639, type: 3}
+  - m_SerializedGuid:
+      m_GuidLow: 4766132223841027553
+      m_GuidHigh: 6124938069810336169
+    m_SerializedTextureGuid:
+      m_GuidLow: 17142044432369790325
+      m_GuidHigh: 12332377143026547881
+    m_Size: {x: 0, y: 0}
+    m_SpecifySize: 0
+    m_Name: Image3
+    m_Texture: {fileID: 2800000, guid: bb5d2d75c696ede4a97c3efeab6725ab, type: 3}
