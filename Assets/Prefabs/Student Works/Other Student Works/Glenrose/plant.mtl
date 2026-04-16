@@ -1,0 +1,178 @@
+newmtl CylinderSG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd Metal009_1K-PNG_Color.png
+bump  -bm 1 Metal009_1K-PNG_NormalGL.png
+Ni 1.00
+newmtl Plane__1_SG3
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd d79dux9-a62c1157-e356-4f20-9346-3080a3d6f953.png
+Ni 1.00
+newmtl _6qo8_VarB_HighSG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+newmtl _feup_VarG_HighSG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+newmtl accesible_planter_box:pCube3SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+newmtl accesible_planter_box:pCube41SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+newmtl bat_boxSG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd Planks023A_1K-PNG_Color.png
+bump  -bm 1 Planks023A_1K-PNG_NormalGL.png
+Ni 1.00
+newmtl fertilizerSG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd T_FlourBag_BaseColor.png
+bump  -bm 1 T_FlourBag_Normal.png
+Ni 1.00
+newmtl floor1SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd PavingStones127_1K-PNG_Color.png
+bump  -bm 1 PavingStones127_1K-PNG_NormalDX.png
+Ni 1.00
+newmtl floorSG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd Asphalt031_1K-PNG_Color.png
+bump  -bm 1 Asphalt031_1K-PNG_NormalGL.png
+Ni 1.00
+newmtl leafSG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd cherry_tree.png
+Ni 1.00
+newmtl owl_boxSG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd Planks023A_1K-PNG_Color.png
+bump  -bm 1 Planks023A_1K-PNG_NormalGL.png
+Ni 1.00
+newmtl pCube3SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd Ground048_2K-PNG_Color.png
+bump  -bm 1 Ground048_2K-PNG_NormalGL.png
+Ni 1.00
+newmtl pCube4SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd Bark015_1K-PNG_Color.png
+bump  -bm 1 Bark015_1K-PNG_NormalGL.png
+Ni 1.00
+newmtl pCube5SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd Ground048_2K-PNG_Color.png
+bump  -bm 1 Ground048_2K-PNG_NormalGL.png
+Ni 1.00
+newmtl pCube37SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd Bark015_1K-PNG_Color.png
+bump  -bm 1 Bark015_1K-PNG_NormalGL.png
+Ni 1.00
+newmtl pCube41SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd Bark015_1K-PNG_Color.png
+bump  -bm 1 Bark015_1K-PNG_NormalGL.png
+Ni 1.00
+newmtl pCube71SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd Bark015_1K-PNG_Color.png
+bump  -bm 1 Bark015_1K-PNG_NormalGL.png
+Ni 1.00
+newmtl pCube82SG
+illum 4
+Kd 1.00 1.00 1.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+newmtl pCube86SG1
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd Ground048_2K-PNG_Color.png
+bump  -bm 1 Ground048_2K-PNG_NormalGL.png
+Ni 1.00
+newmtl pCube90SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd fabrics_0071_color_2k.jpg
+bump  -bm 1 fabrics_0071_normal_opengl_2k.png
+Ni 1.00
+newmtl pCube91SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd Ground048_2K-PNG_Color.png
+bump  -bm 1 Ground048_2K-PNG_NormalGL.png
+Ni 1.00
+newmtl pCylinder2SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd Bark015_1K-PNG_Color_dark.psd
+bump  -bm 1 Bark015_1K-PNG_NormalGL.png
+Ni 1.00
+newmtl tomatorockSG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
