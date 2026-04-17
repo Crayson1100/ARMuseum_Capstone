@@ -3,8 +3,8 @@ using UnityEngine;
 public class RoamingRobot : MonoBehaviour
 {
     public Transform[] points;
-    public float speed = 3f;
-    public float rotateSpeed = 8f;
+    public float speed = 1f;
+    public float rotateSpeed = 5f;
 
     private int index = 0;
     private int direction = 1;
