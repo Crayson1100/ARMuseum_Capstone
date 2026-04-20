@@ -22,7 +22,6 @@ public class CameraSpawn : MonoBehaviour
 
     private void Start()
     {
-        // Ensure museum is hidden at the beginning
         if (museumRoot != null)
             museumRoot.SetActive(false);
     }
@@ -83,11 +82,9 @@ public class CameraSpawn : MonoBehaviour
         if (spawn == null || arContentRoot == null)
             return;
 
-        // Move AR content to the spawn point
         arContentRoot.position = spawn.position;
         arContentRoot.rotation = spawn.rotation;
 
-        // Activate the museum
         if (museumRoot != null)
             museumRoot.SetActive(true);
 
@@ -98,10 +95,8 @@ public class CameraSpawn : MonoBehaviour
 
     private void DisableTracking()
     {
-        // Disable tracking system
         trackedImageManager.enabled = false;
 
-        // Hide any tracked image objects still visible
         foreach (var trackedImage in trackedImageManager.trackables)
             trackedImage.gameObject.SetActive(false);
 

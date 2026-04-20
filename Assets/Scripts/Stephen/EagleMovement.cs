@@ -12,7 +12,6 @@ public class EagleMovement : MonoBehaviour
 
     void Start()
     {
-        // Store where the eagle starts in the scene
         startPos = transform.position;
     }
 
@@ -23,11 +22,9 @@ public class EagleMovement : MonoBehaviour
         float x = width * Mathf.Sin(t);
         float z = height * Mathf.Sin(t) * Mathf.Cos(t);
 
-        // Move relative to the starting position
         Vector3 targetPos = startPos + new Vector3(x, 0, z + forwardOffset);
         transform.position = targetPos;
 
-        // Predict next position for rotation
         Vector3 nextPos = startPos + new Vector3(
             width * Mathf.Sin(t + 0.1f),
             0,
